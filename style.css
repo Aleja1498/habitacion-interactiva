@@ -1,1 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #120e0a;
+}
+
+.escenario {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* gif del paisaje */
+.capa-paisaje {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gif-paisaje {
+  position: absolute;
+  top: 19%;
+  left: 39%;
+  width: 22%;
+  height: 38%;
+  object-fit: cover;
+}
+
+/* Habitación superpuesta */
+.capa-habitacion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.img-habitacion {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/*  Zonas interactivas */
+.capa-interactiva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.zona {
+  position: absolute;
+  cursor: pointer;
+}
+
+.zona-cama {
+  bottom: 0%;
+  right: 0%;
+  width: 38%;
+  height: 45%;
+}
+
+.zona-pared {
+  top: 0%;
+  left: 0%;
+  width: 28%;
+  height: 100%;
+}
+
+.zona-espejo {
+  top: 22%;
+  right: 0%;
+  width: 12%;
+  height: 45%;
+}
