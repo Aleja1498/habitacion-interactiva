@@ -153,16 +153,16 @@ body, html {
   display: none;
 }
 /* Lienzo especial para escribir en la pared */
+
 .capa-texto-pared {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 32vw; /* pared izquierda */
   height: 100vh;
-  background-color: rgba(20, 15, 8, 0.4); /* Fondo sutil para enfocar la pared */
-  z-index: 20;
-  cursor: crosshair;
+  z-index: 25; /
+  cursor: default;
   user-select: none;
 }
 
@@ -170,21 +170,22 @@ body, html {
   display: block;
 }
 
-/* Estilo de la letra al pasar la pared */
+/* Estilo de la letra la pared */
 .letra-pared {
   position: absolute;
-  color: #3b2e1e; /* Tinta oscura desgastada */
+  color: #1a1208; 
   font-family: 'Courier New', Courier, monospace;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 900;
   pointer-events: none;
-  text-shadow: 1px 1px 2px rgba(229, 193, 88, 0.6); /*amarillo sutil */
+  z-index: 30;
+  text-shadow: 0 0 4px #e5c158; /* amarillo brillante */
 }
 
-/* Estilo para las frases destacadas */
+/*frases destacadas */
 .letra-pared.cargada {
-  color: #e5c158; /* Amarillo */
-  font-size: 32px;
+  color: #d63031; 
+  font-size: 34px;
   font-weight: 900;
-  text-shadow: 0 0 8px rgba(229, 193, 88, 0.9), 2px 2px 4px #000;
+  text-shadow: 0 0 8px #e5c158, 2px 2px 4px #000;
 }
