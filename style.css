@@ -153,39 +153,47 @@ body, html {
   display: none;
 }
 /* Lienzo especial para escribir en la pared */
-
 .capa-texto-pared {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
-  width: 32vw; /* pared izquierda */
-  height: 100vh;
-  z-index: 25; /
-  cursor: default;
+  width: 30vw; 
+  height: 90vh;
+  z-index: 25;
+  cursor: crosshair;
   user-select: none;
+  overflow: hidden;
 }
 
 .capa-texto-pared.activo {
   display: block;
 }
 
-/* Estilo de la letra la pared */
+/* Estilo de la letra */
 .letra-pared {
   position: absolute;
-  color: #1a1208; 
+  color: #0d0905; 
   font-family: 'Courier New', Courier, monospace;
-  font-size: 26px;
-  font-weight: 900;
+  font-size: 36px; 
+  font-weight: 900; 
   pointer-events: none;
   z-index: 30;
-  text-shadow: 0 0 4px #e5c158; /* amarillo brillante */
+  white-space: nowrap;
+ 
+  text-shadow: 
+    0 0 8px #ffe600,
+    0 0 15px #ffb700,
+    2px 2px 4px #000000;
 }
 
-/*frases destacadas */
+/* Frases */
 .letra-pared.cargada {
-  color: #d63031; 
-  font-size: 34px;
+  color: #d63031; /* Rojo intenso */
+  font-size: 46px; /* Tamaño gigante */
   font-weight: 900;
-  text-shadow: 0 0 8px #e5c158, 2px 2px 4px #000;
+  text-shadow: 
+    0 0 10px #ffe600,
+    0 0 20px #ff0000,
+    3px 3px 6px #000000;
 }
