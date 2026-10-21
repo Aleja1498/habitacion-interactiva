@@ -1,3 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #120e0a;
+}
+
+
+.escenario {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*  El GIF paisaje detrás */
+.capa-paisaje {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.gif-paisaje {
+  position: absolute;
+  top: 19%;
+  left: 39%;
+  width: 22%;
+  height: 38%;
+  object-fit: cover;
+}
+
+/* La habitación superpuesta */
+.capa-habitacion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.img-habitacion {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/*  Zonas para clics */
+.capa-interactiva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.zona {
+  position: absolute;
+  cursor: pointer;
+}
+
+.zona-cama {
+  bottom: 0%;
+  right: 0%;
+  width: 38%;
+  height: 45%;
+}
+
+.zona-pared {
+  top: 0%;
+  left: 0%;
+  width: 28%;
+  height: 100%;
+}
+
+.zona-espejo {
+  top: 22%;
+  right: 0%;
+  width: 12%;
+  height: 45%;
+}
+
+/* Capas de texto */
 .capa-texto {
   display: none;
   position: fixed;
@@ -5,19 +97,17 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(18, 14, 10, 0.95); /* semitransparente */
+  background-color: rgba(18, 14, 10, 0.95);
   color: #e5dccb;
   z-index: 10;
   overflow-y: auto;
   padding: 40px 20px;
 }
 
-/* Al hacer clic, se muestra el texto */
 .capa-texto:target {
   display: block;
 }
 
-/*el botón de cerrar */
 .btn-cerrar {
   position: fixed;
   top: 20px;
@@ -31,11 +121,6 @@
   border-radius: 4px;
 }
 
-.btn-cerrar:hover {
-  color: #fff;
-}
-
-/* Formato del texto */
 .contenido-modal {
   max-width: 700px;
   margin: 40px auto;
@@ -59,7 +144,6 @@
   margin-bottom: 18px;
 }
 
-/* Frases destacadas */
 .destacado {
   color: #e5c158;
   font-weight: bold;
