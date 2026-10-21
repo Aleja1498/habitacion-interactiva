@@ -1,4 +1,4 @@
-const textoPerkins = "John es médico, y tal vez esa sea una de las razones por las que no me pongo bien más rápido. Verá, ¡No cree que estoy enferma! Personalmente no estoy de acuerdo con sus ideas. ¡No me gusta nada nuestra habitación! No me importa nada, sólo el papel. Uno de esos patrones extravagantes que cometen todos los pecados artísticos. Es lo suficientemente aburrido como para confundir al ojo al seguirlo, lo suficientemente pronunciado como para irritar constantemente. El color es repelente, casi repugnante; un amarillo humeante y sucio. Detrás de ese patrón exterior... las tenues formas se hacen más claras cada día. La mujer de atrás lo agita. En los lugares muy sombríos se agarra a los barrotes y los sacude con fuerza. Y todo el tiempo trata de trepar. ¡Al fin he salido!, a pesar de ti y de Jane! Y he arrancado la mayor parte del papel, ¡así que no puedes devolverme! ";
+const textoPerkins = "John es médico, y tal vez esa sea una de las razones por las que no me pongo bien más rápido. Verá, ¡No cree que estoy enferma! Personalmente no estoy de acuerdo con sus ideas. ¡No me gusta nada nuestra habitación! No me importa nada, sólo el papel. Uno de esos patrones extravagantes que cometen todos los pecados artísticos. Es lo suficientemente aburrido como para confundir al ojo al seguirlo, lo suficientemente pronunciado como para irritar constantemente. El color es repelente, casi repugnante; un amarillo humeante y sucio. Detrás de ese patrón exterior... las tenues formas se hacen más claras cada día. La mujer de atrás lo agita. En los lugares muy sombríos se agarra a los barrotes y los sacude com fuerza. Y todo el tiempo trata de trepar. ¡Al fin he salido!, a pesar de ti y de Jane! Y he arrancado la mayor parte del papel, ¡así que no puedes devolverme! ";
 
 const frasesCargadas = [
   "¡No cree que estoy enferma!",
@@ -14,7 +14,7 @@ let indexTexto = 0;
 let estaPresionado = false;
 let ultimoX = 0;
 let ultimoY = 0;
-const espacioMinimo = 20;
+const espacioMinimo = 26; 
 
 const zonaPared = document.querySelector('.zona-pared');
 const capaParedLienzo = document.getElementById('perkins');
@@ -28,20 +28,30 @@ if (zonaPared) {
   });
 }
 
-// Escuchar los clics dentro del contenedor de la pared
 if (capaParedLienzo) {
   capaParedLienzo.addEventListener('mousedown', (e) => {
     if (!modoParedActivo) return;
-    estaPresionado = true;
-    ultimoX = e.clientX;
-    ultimoY = e.clientY;
-    crearLetra(e.clientX, e.clientY);
+    
+    // Verificar que el clic esté estrictamente dentro de la pared izquierda
+    const rect = capaParedLienzo.getBoundingClientRect();
+    if (e.clientX >= rect.left && e.clientX <= rect.right) {
+      estaPresionado = true;
+      ultimoX = e.clientX;
+      ultimoY = e.clientY;
+      crearLetra(e.clientX, e.clientY);
+    }
   });
 
   window.addEventListener('mouseup', () => estaPresionado = false);
 
   capaParedLienzo.addEventListener('mousemove', (e) => {
     if (!modoParedActivo || !estaPresionado) return;
+
+   
+    const rect = capaParedLienzo.getBoundingClientRect();
+    if (e.clientX < rect.left || e.clientX > rect.right) {
+      return; // Si el cursor se sale de la pared a la derecha, no escribe
+    }
 
     let distancia = Math.hypot(e.clientX - ultimoX, e.clientY - ultimoY);
 
@@ -70,8 +80,10 @@ function crearLetra(x, y) {
     span.classList.add('cargada');
   }
 
-  let rotacion = (Math.random() - 0.5) * 18; 
-  span.style.transform = `translate(-50%, -50%) rotate(${rotacion}deg)`;
+
+  let rotacionInclinacion = (Math.sin(indexTexto) * 6); // Oscilación suave y lineal
+
+  span.style.transform = `translate(-50%, -50%) rotate(${rotacionInclinacion}deg)`;
 
   capaParedLienzo.appendChild(span);
 
