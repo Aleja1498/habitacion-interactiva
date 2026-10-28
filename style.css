@@ -187,7 +187,7 @@ body:has(#perkins:target) .capa-habitacion {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 48vw;
+  width: 32vw; /* tamaño caja de texto */
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
