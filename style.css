@@ -162,6 +162,25 @@ body, html {
    ESTILOS DE LA PARED 
    ======================================================== */
 
+/* ========================================================
+   EFECTO ZOOM Y LECTURA DIRECTA EN PARED (SIN VENTANA)
+   ======================================================== */
+
+/* Transición suave para que la habitación haga zoom */
+.escenario {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left top; /* El zoom se enfoca hacia la pared izquierda */
+}
+
+/* Cuando se selecciona la pared (#perkins), la habitación completa hace ZOOM IN */
+body:has(#perkins:target) .escenario {
+  transform: scale(2.6) translate(5vw, 5vh); /* Agranda y enfoca la pared de la izquierda */
+}
+
+/* Capa transparente sobre la pared para leer directamente */
 .capa-texto-pared {
   display: none;
   position: fixed;
@@ -169,28 +188,29 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(10, 8, 5, 0.75); /* Fondo tenue que deja ver la habitación */
   z-index: 30;
   overflow: hidden;
+  background: transparent; /* Sin fondo oscuro para ver la pared real con zoom */
 }
 
 .capa-texto-pared:target {
   display: block;
 }
 
+/* Lienzo de texto ubicado perfectamente sobre el papel tapiz ampliado */
 .lienzo-pared {
   position: absolute;
-  top: 8vh;
-  left: 4vw;
-  width: 30vw; /* Limitado estrictamente al ancho de la pared izquierda */
-  height: 84vh;
+  top: 10vh;
+  left: 6vw;
+  width: 85vw; /* Ocupa casi toda la pantalla en zoom */
+  height: 80vh;
   overflow-y: auto;
-  padding-right: 15px;
+  padding-right: 20px;
   font-family: 'Fraunces', serif;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-/* Ocultar barra de scroll para mantener la estética */
+/* Ocultar barra de scroll para no romper la ilusión */
 .lienzo-pared::-webkit-scrollbar {
   width: 0px;
 }
@@ -198,54 +218,79 @@ body, html {
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  color: #d4ac0d;
-  font-size: 2.4rem;
+  color: #3b2e1e;
+  font-size: 2.8rem;
   margin-bottom: 2px;
+  opacity: 0.9;
 }
 
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  color: #a89f91;
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  color: #5c4d37;
+  font-size: 1.3rem;
+  margin-bottom: 35px;
 }
 
 .cuerpo-pared p {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* PALABRAS AUSTERAS CON TIPOGRAFÍA FRAUNCES */
+/* PALABRAS SOBRIAS Y AUSTERAS DIRECTO EN LA PARED */
 .cuerpo-pared span {
-  opacity: 0.25;
-  filter: blur(1px);
-  color: #2b2216;
+  opacity: 0.2; /* Sombra tenue que parece parte de la textura del papel */
+  filter: blur(1.2px);
+  color: #241a0e; /* Tinta oscura desgastada */
   font-family: 'Fraunces', serif;
-  font-size: 25px; /* Puntaje alto solicitado */
+  font-size: 26px; /* Puntaje amplio y legible */
   font-weight: 500;
   display: inline-block;
-  transition: opacity 0.2s ease, filter 0.2s ease, color 0.2s ease;
+  transition: opacity 0.25s ease, filter 0.25s ease, color 0.25s ease;
   cursor: default;
-  margin-right: 4px;
+  margin-right: 5px;
 }
 
-/* Revelado al pasar el cursor (hover) */
+/* Revelado sobrio al pasar el cursor */
 .cuerpo-pared span:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #fceabb; /* Blanco hueso austero */
+  color: #ffffff; /* Blanco puro que destaca sobre la pared acentuada */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Frases destacadas en BOLD de 28px */
+/* Frases destacadas en BOLD de 32px */
 .cuerpo-pared span.destacado {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 900;
-  color: #3b2e1e;
-  opacity: 0.4;
+  color: #120c06;
+  opacity: 0.35;
 }
 
 .cuerpo-pared span.destacado:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #ffffff;
+  color: #fff3cc; /* Tono crema claro austero */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Botón flotante sobrio para salir del Zoom */
+.btn-cerrar-pared {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Fraunces', serif;
+  background: rgba(18, 14, 10, 0.8);
+  padding: 10px 18px;
+  border-radius: 4px;
+  z-index: 40;
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-cerrar-pared:hover {
+  background: #e5c158;
+  color: #120e0a;
 }
