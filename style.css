@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: gif detrás */
+/* Capa 1: El GIF paisaje detrás */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto storni */
+/* Capas de texto estándar (Storni) */
 .capa-texto {
   display: none;
   position: fixed;
@@ -120,6 +120,10 @@ body, html {
   padding: 8px 16px;
   border-radius: 4px;
   z-index: 40;
+}
+
+.btn-cerrar:hover {
+  color: #ffffff;
 }
 
 .contenido-modal {
@@ -155,7 +159,9 @@ body, html {
 }
 
 
-/* EFECTO LINTERNA */
+/* ========================================================
+   EFECTO LINTERNA AMPLIO (CHARLOTTE PERKINS GILMAN)
+   ======================================================== */
 
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
@@ -187,7 +193,7 @@ body:has(#perkins:target) .capa-habitacion {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 48vw;
+  width: 32vw;
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -272,11 +278,11 @@ body:has(#perkins:target) .halo-linterna {
 }
 
 
-/* LA CAMA Y LA LLUVIA DE FRASES EN EL SUELO  */
+/*  Woolf. cama y lluvia de frases */
 
-/* Al activar la cama (#woolf), la habitación entra en un tono azulino frío */
+/* Oscurecimiento */
 body:has(#woolf:target) .capa-habitacion {
-  filter: brightness(0.4) hue-rotate(180deg) contrast(1.1);
+  filter: brightness(0.35) contrast(1.15);
 }
 
 .capa-texto-cama {
@@ -289,22 +295,23 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 30;
   overflow: hidden;
   cursor: pointer;
-  background: rgba(8, 12, 18, 0.7); /* Penumbra fría de enfermedad */
+  background: rgba(8, 10, 15, 0.6);
 }
 
 .capa-texto-cama:target {
   display: block;
 }
 
-/* Cita flotando sobre la cama */
+/* Texto principal sobre la cama */
 .texto-cama-principal {
   position: absolute;
-  bottom: 28vh;
-  right: 5vw;
-  width: 38vw;
+  bottom: 24vh;
+  right: 4vw;
+  width: 40vw;
   font-family: 'Libre Baskerville', serif;
   color: #d0e1fd;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
 }
 
 .texto-cama-principal h2 {
@@ -317,16 +324,16 @@ body:has(#woolf:target) .capa-habitacion {
   font-style: italic;
   color: #9aa0a6;
   font-size: 1.1rem;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   line-height: 1.7;
 }
 
 .texto-cama-principal .cita-cama span {
-  color: #e8eaed;
+  color: #ffffff;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: #8ab4f8;
@@ -335,45 +342,46 @@ body:has(#woolf:target) .capa-habitacion {
 /* Contenedor del suelo */
 .lluvia-suelo {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100vw;
-  height: 35vh; /* Ocupa el área del suelo de madera */
+  height: 100vh;
   pointer-events: none;
+  z-index: 32;
 }
 
 /* Estilo de cada frase que cae al suelo */
 .frase-caida {
   position: absolute;
   font-family: 'Libre Baskerville', serif;
-  font-size: 20px;
+  font-size: 22px;
   color: #a6c8ff;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
-  text-shadow: 1px 1px 4px #000000;
-  animation: caerAlSuelo 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 6px #000000;
+  animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .frase-caida:hover {
   color: #ffffff;
-  transform: scale(1.1) !important;
+  transform: scale(1.12) !important;
   text-shadow: 0 0 12px #8ab4f8;
 }
 
-/* Animación de caída por gravedad */
+/* caída desde la cama al piso */
 @keyframes caerAlSuelo {
   0% {
-    top: 50vh; /* cae desde la cama */
+    top: 55vh;
     opacity: 0;
   }
-  60% {
-    opacity: 0.9;
+  50% {
+    opacity: 0.95;
   }
   100% {
-    top: var(--destino-y); /* coordenada suelo */
-    opacity: 0.75;
+    top: var(--destino-y);
+    opacity: 0.85;
   }
 }
 
@@ -390,6 +398,7 @@ body:has(#woolf:target) .capa-habitacion {
   border-radius: 4px;
   z-index: 40;
   border: 1px solid rgba(138, 180, 248, 0.3);
+  pointer-events: auto;
 }
 
 .btn-cerrar-cama:hover {
