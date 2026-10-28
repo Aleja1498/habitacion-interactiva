@@ -156,12 +156,12 @@ body, html {
 
 
 /* ========================================================
-   EFECTO LINTERNA SOBRE LA PARED (CHARLOTTE PERKINS GILMAN)
+   EFECTO LINTERNA SOBRE LA PARED COMPLETA (CHARLOTTE PERKINS)
    ======================================================== */
 
 /* Al activar el modo pared (#perkins), atenuamos la luz general de la habitación */
 body:has(#perkins:target) .capa-habitacion {
-  filter: brightness(0.4) contract(1.1);
+  filter: brightness(0.35) contrast(1.1);
 }
 
 .capa-texto-pared {
@@ -173,24 +173,24 @@ body:has(#perkins:target) .capa-habitacion {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  background: rgba(10, 7, 4, 0.35); /* Velo sutil que enfatiza la penumbra */
+  background: rgba(10, 7, 4, 0.25); /* Velo muy sutil para dar clima de penumbra */
 }
 
 .capa-texto-pared:target {
   display: block;
 }
 
-/* Contenedor de lectura montado sobre el área de la pared izquierda */
+/* Lienzo ampliado para abarcar TODA la pared izquierda */
 .lienzo-pared {
   position: absolute;
-  top: 6vh;
-  left: 3vw;
-  width: 27vw; /* Ancho acotado exactamente a la pared de la izquierda */
-  height: 88vh;
+  top: 4vh;
+  left: 2vw;
+  width: 35vw; /* Ampliado para cubrir toda la superficie de la pared amarilla */
+  height: 92vh;
   overflow-y: auto;
-  padding-right: 15px;
+  padding-right: 20px;
   font-family: 'Fraunces', serif;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .lienzo-pared::-webkit-scrollbar {
@@ -200,8 +200,8 @@ body:has(#perkins:target) .capa-habitacion {
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  color: #d4ac0d;
-  font-size: 2.2rem;
+  color: #e5c158;
+  font-size: 2.4rem;
   margin-bottom: 2px;
   opacity: 0.9;
 }
@@ -209,8 +209,8 @@ body:has(#perkins:target) .capa-habitacion {
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  color: #8c7b60;
-  font-size: 1.1rem;
+  color: #a89f91;
+  font-size: 1.15rem;
   margin-bottom: 30px;
 }
 
@@ -218,26 +218,26 @@ body:has(#perkins:target) .capa-habitacion {
   margin-bottom: 22px;
 }
 
-/* PALABRAS OCULTAS EN LA PENUMBRA DE LA PARED */
+/* PALABRAS EN PENUMBRA CON CURSOR NORMAL */
 .cuerpo-pared span {
-  opacity: 0.15; /* Sombra en penumbra en estado normal */
-  filter: blur(1.5px);
+  opacity: 0.18; /* Sombra sutil grabada en la pared */
+  filter: blur(1.2px);
   color: #2b2216; /* Tinta oscura desgastada */
   font-family: 'Fraunces', serif;
   font-size: 25px; /* Puntaje de 25px */
   font-weight: 500;
   display: inline-block;
   transition: opacity 0.3s ease, filter 0.3s ease, color 0.3s ease;
-  cursor: crosshair; /* Cursor de precisión / linterna */
+  cursor: default; /* Cursor normal, sin la cruz */
   margin-right: 4px;
 }
 
-/* EFECTO LINTERNA: Al pasar la "luz" del cursor sobre la frase */
+/* EFECTO LINTERNA: Iluminación de palabras bajo el puntero */
 .cuerpo-pared span:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #ffffff; /* Blanco hueso nítido e iluminado */
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6), 0 0 4px #e5c158; /* Luz de linterna suave */
+  color: #ffffff; /* Blanco hueso austero y brillante */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6), 0 0 4px #e5c158;
 }
 
 /* Frases destacadas / obsesivas: 28px BOLD */
@@ -245,17 +245,17 @@ body:has(#perkins:target) .capa-habitacion {
   font-size: 28px; /* Puntaje de 28px */
   font-weight: 900; /* Bold */
   color: #3b2e1e;
-  opacity: 0.25;
+  opacity: 0.28;
 }
 
 .cuerpo-pared span.destacado:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #fff3cc; /* Tono cálido austero bajo la linterna */
+  color: #fff3cc;
   text-shadow: 0 0 15px rgba(255, 243, 204, 0.8), 0 0 6px #e5c158;
 }
 
-/* Botón discreto para salir de la experiencia de la pared */
+/* Botón flotante para volver */
 .btn-cerrar-pared {
   position: fixed;
   top: 25px;
