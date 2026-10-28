@@ -161,6 +161,7 @@ body, html {
 /* ========================================================
    ESTILOS DE LA PARED 
    ======================================================== */
+
 .capa-texto-pared {
   display: none;
   position: fixed;
@@ -168,35 +169,28 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  background-color: rgba(10, 8, 5, 0.85);
+  background-color: rgba(10, 8, 5, 0.75); /* Fondo tenue que deja ver la habitación */
   z-index: 30;
-  overflow: hidden; 
-  perspective: 1200px; 
+  overflow: hidden;
+}
 
 .capa-texto-pared:target {
   display: block;
 }
 
-
 .lienzo-pared {
   position: absolute;
-  top: 6vh;
-  left: 2vw;
-  width: 32vw; 
-  height: 88vh;
-  padding: 20px;
-  overflow-y: auto; 
-
-  /* Transformación en perspectiva 3D para acoplar al ángulo de la ilustración */
-  transform-origin: left center;
-  transform: rotateY(24deg) skewY(2deg);
-
+  top: 8vh;
+  left: 4vw;
+  width: 30vw; /* Limitado estrictamente al ancho de la pared izquierda */
+  height: 84vh;
+  overflow-y: auto;
+  padding-right: 15px;
   font-family: 'Fraunces', serif;
   line-height: 1.7;
 }
 
-
+/* Ocultar barra de scroll para mantener la estética */
 .lienzo-pared::-webkit-scrollbar {
   width: 0px;
 }
@@ -205,49 +199,47 @@ body, html {
   font-family: 'Fraunces', serif;
   font-weight: 900;
   color: #d4ac0d;
-  font-size: 2.6rem; /* Puntaje alto */
+  font-size: 2.4rem;
   margin-bottom: 2px;
-  text-shadow: none; /* Austero, sin brillos */
 }
 
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  color: #8c7b60;
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  color: #a89f91;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
 }
 
 .cuerpo-pared p {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-
+/* PALABRAS AUSTERAS CON TIPOGRAFÍA FRAUNCES */
 .cuerpo-pared span {
-  opacity: 0.25; /* Tenue  */
+  opacity: 0.25;
   filter: blur(1px);
-  color: #2b2216; /* desgastada */
+  color: #2b2216;
   font-family: 'Fraunces', serif;
-  font-size: 28px; /* Puntaje alto  */
+  font-size: 25px; /* Puntaje alto solicitado */
   font-weight: 500;
   display: inline-block;
   transition: opacity 0.2s ease, filter 0.2s ease, color 0.2s ease;
   cursor: default;
   margin-right: 4px;
-  text-shadow: none; 
 }
 
-
+/* Revelado al pasar el cursor (hover) */
 .cuerpo-pared span:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #fceabb; /* Blanco hueso / paja claro */
+  color: #fceabb; /* Blanco hueso austero */
 }
 
-
+/* Frases destacadas en BOLD de 28px */
 .cuerpo-pared span.destacado {
-  font-size: 34px; /* Puntaje destacado mucho mayor */
-  font-weight: 900; /* Extra bold */
+  font-size: 28px;
+  font-weight: 900;
   color: #3b2e1e;
   opacity: 0.4;
 }
@@ -255,5 +247,5 @@ body, html {
 .cuerpo-pared span.destacado:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #ffffff; 
+  color: #ffffff;
 }
