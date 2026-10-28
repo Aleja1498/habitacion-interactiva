@@ -278,11 +278,13 @@ body:has(#perkins:target) .halo-linterna {
 }
 
 
-/*  Woolf. cama y lluvia de frases */
+/* ========================================================
+   LA CAMA Y LA LLUVIA EN TONOS CÁLIDOS (VIRGINIA WOOLF)
+   ======================================================== */
 
-/* Oscurecimiento */
+/* Oscurecimiento cálido en la habitación */
 body:has(#woolf:target) .capa-habitacion {
-  filter: brightness(0.35) contrast(1.15);
+  filter: brightness(0.35) contrast(1.1);
 }
 
 .capa-texto-cama {
@@ -295,34 +297,35 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 30;
   overflow: hidden;
   cursor: pointer;
-  background: rgba(8, 10, 15, 0.6);
+  background: rgba(12, 9, 6, 0.7); /* Penumbra tenue cálida */
 }
 
 .capa-texto-cama:target {
   display: block;
 }
 
-/* Texto principal sobre la cama */
+/* Texto principal sobre la cama en tonos dorados/marfil */
 .texto-cama-principal {
   position: absolute;
   bottom: 24vh;
   right: 4vw;
   width: 40vw;
   font-family: 'Libre Baskerville', serif;
-  color: #d0e1fd;
+  color: #e5dccb;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
   pointer-events: none;
+  z-index: 31;
 }
 
 .texto-cama-principal h2 {
   font-size: 2.2rem;
-  color: #8ab4f8;
-  margin-bottom: 5px;
+  color: #e5c158;
+  margin-bottom: 4px;
 }
 
 .texto-cama-principal .autor {
   font-style: italic;
-  color: #9aa0a6;
+  color: #a89f91;
   font-size: 1.1rem;
   margin-bottom: 18px;
 }
@@ -336,26 +339,26 @@ body:has(#woolf:target) .capa-habitacion {
   color: #ffffff;
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: #8ab4f8;
+  text-decoration-color: #e5c158;
 }
 
-/* Contenedor del suelo */
+/* Contenedor de la lluvia de frases */
 .lluvia-suelo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 90vw;
+  width: 100vw;
   height: 100vh;
   pointer-events: none;
   z-index: 32;
 }
 
-/* Estilo de cada frase que cae al suelo */
+/* Frases amontonadas sobre las tablas de madera (Tonos Cálidos / Sepia) */
 .frase-caida {
   position: absolute;
   font-family: 'Libre Baskerville', serif;
-  font-size: 40px;
-  color: #654321;
+  font-size: 22px;
+  color: #d4ac0d; /* Tono dorado/sepia suave */
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
@@ -365,13 +368,13 @@ body:has(#woolf:target) .capa-habitacion {
 }
 
 .frase-caida:hover {
-  color: #708238;
+  color: #ffffff; /* Blanco hueso nítido al pasar el cursor */
   transform: scale(1.12) !important;
-  text-shadow: 0 0 12px #8ab4f8;
+  text-shadow: 0 0 12px #e5c158;
 }
 
-/* caída desde la cama al piso */
-@keyframes caeralsuelo {
+/* Animación de caída al suelo */
+@keyframes caerAlSuelo {
   0% {
     top: 55vh;
     opacity: 0;
@@ -389,19 +392,19 @@ body:has(#woolf:target) .capa-habitacion {
   position: fixed;
   top: 25px;
   right: 30px;
-  color: #8ab4f8;
+  color: #e5c158;
   text-decoration: none;
   font-size: 1.1rem;
   font-family: 'Libre Baskerville', serif;
-  background: rgba(10, 15, 25, 0.85);
+  background: rgba(18, 14, 10, 0.85);
   padding: 10px 18px;
   border-radius: 4px;
   z-index: 40;
-  border: 1px solid rgba(138, 180, 248, 0.3);
+  border: 1px solid rgba(229, 193, 88, 0.3);
   pointer-events: auto;
 }
 
 .btn-cerrar-cama:hover {
-  background: #8ab4f8;
-  color: #080c12;
+  background: #e5c158;
+  color: #120e0a;
 }
