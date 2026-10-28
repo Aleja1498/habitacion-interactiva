@@ -194,7 +194,7 @@ body:has(#perkins:target) .capa-habitacion {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 48vw; /* Caja de texto ancha */
+  width: 40vw; /* Caja de texto ancha */
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -234,7 +234,7 @@ body:has(#perkins:target) .capa-habitacion {
 /* Frases destacadas en Fraunces */
 .cuerpo-pared span.destacado {
   font-family: 'Fraunces', serif !important;
-  font-size: 39px;
+  font-size: 35px;
   font-weight: 900;
   color: #f39c12;
 }
