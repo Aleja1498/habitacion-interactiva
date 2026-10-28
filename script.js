@@ -1,5 +1,5 @@
 
-// 1. Efecto pared (CHARLOTTE PERKINS GILMAN)
+// 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
 
 const capaPared = document.getElementById('perkins');
 const haloLinterna = document.getElementById('linterna');
@@ -25,8 +25,7 @@ if (capaPared) {
   });
 }
 
-
-// 2. cama y caída al suelo Woolf
+// 2. CAMA Y CAÍDA AL SUELO (VIRGINIA WOOLF)
 
 const frasesWoolf = [
   "cuán tremenda es la alteración espiritual",
@@ -55,10 +54,10 @@ function generarCaidaFrases() {
       span.className = 'frase-caida';
       span.innerText = frase;
 
-      // Distribución sobre el piso de madera (parte inferior)
-      let posX = (index % 3) * 28 + Math.random() * 10 + 4; // Distribución en 3 columnas
-      let posY = 70 + Math.floor(index / 3) * 6 + Math.random() * 3; // Escalón vertical en el suelo (70vh a 92vh)
-      let rotacion = Math.random() * 10 - 5; // Inclinación suave (-5deg a +5deg)
+      // Distribución sobre el piso de madera
+      let posX = (index % 3) * 28 + Math.random() * 10 + 4; 
+      let posY = 70 + Math.floor(index / 3) * 6 + Math.random() * 3; 
+      let rotacion = Math.random() * 10 - 5; 
 
       span.style.left = `${posX}vw`;
       span.style.setProperty('--destino-y', `${posY}vh`);
@@ -69,7 +68,7 @@ function generarCaidaFrases() {
   });
 }
 
-// Escuchar cambios 
+// Escuchar cambios de Hash
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#woolf') {
     generarCaidaFrases();
@@ -94,8 +93,7 @@ if (capaCama) {
 }
 
 
-
-// 3. TECLA GLOBAL
+// 3. TECLA ESCAPE
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     window.location.hash = '';
