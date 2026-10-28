@@ -2,7 +2,7 @@ const capaPared = document.getElementById('perkins');
 const haloLinterna = document.getElementById('linterna');
 
 if (capaPared) {
-  // Movimiento fluido del haz reflector amplio
+  // literns
   capaPared.addEventListener('mousemove', (e) => {
     const x = e.clientX;
     const y = e.clientY;
@@ -16,7 +16,7 @@ if (capaPared) {
     }
   });
 
-  // Salir de la pared con un clic en cualquier parte de la pantalla
+  // Salir con clic en cualquier parte de la pantalla
   capaPared.addEventListener('click', (e) => {
     window.location.hash = '';
   });
