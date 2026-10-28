@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1 gif */
+/* C paisaje gif al fondo */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@ body, html {
   object-fit: fill;
 }
 
-/* Capa 3: Zonas interactivas */
+/* Capa 3: interactiva */
 .capa-interactiva {
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto  (Woolf y Storni) */
+/* Capas de texto de Storni */
 .capa-texto {
   display: none;
   position: fixed;
@@ -120,10 +120,6 @@ body, html {
   padding: 8px 16px;
   border-radius: 4px;
   z-index: 40;
-}
-
-.btn-cerrar:hover {
-  color: #ffffff;
 }
 
 .contenido-modal {
@@ -159,9 +155,8 @@ body, html {
 }
 
 
-/*  Efecto linterna */
+/*  EFECTO LINTERNA CHARLOTTE PERKINS  */
 
-/* Atenuación del cuarto */
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
 }
@@ -175,10 +170,9 @@ body:has(#perkins:target) .capa-habitacion {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  cursor: pointer; 
+  cursor: pointer;
   background-color: rgba(10, 8, 5, 0.85);
   
-  /*  linterna a 450px */
   --x: 50%;
   --y: 50%;
   mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
@@ -189,12 +183,11 @@ body:has(#perkins:target) .capa-habitacion {
   display: block;
 }
 
-
 .lienzo-pared {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 30vw; /* Caja de texto*/
+  width: 48vw;
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -225,21 +218,19 @@ body:has(#perkins:target) .capa-habitacion {
 .cuerpo-pared p {
   margin-bottom: 26px;
   font-family: 'Fraunces', serif !important;
-  font-size: 32px; /* Puntaje amplio */
+  font-size: 32px;
   font-weight: 500;
   color: #fff8dc;
   line-height: 1.7;
 }
 
-/* Frases destacadas en Fraunces */
 .cuerpo-pared span.destacado {
   font-family: 'Fraunces', serif !important;
-  font-size: 35px;
+  font-size: 38px;
   font-weight: 900;
   color: #f39c12;
 }
 
-/* Halo luminoso flotante  */
 .halo-linterna {
   position: fixed;
   top: 0;
@@ -259,7 +250,6 @@ body:has(#perkins:target) .halo-linterna {
   display: block;
 }
 
-/* Botón flotante  */
 .btn-cerrar-pared {
   position: fixed;
   top: 25px;
@@ -279,4 +269,130 @@ body:has(#perkins:target) .halo-linterna {
 .btn-cerrar-pared:hover {
   background: #e5c158;
   color: #120e0a;
+}
+
+
+/*  LLUVIA DE FRASES EN EL SUELO VIRGINIA WOOLF */
+
+/* Al activar la cama (#woolf), la habitación entra en un tono azulino frío */
+body:has(#woolf:target) .capa-habitacion {
+  filter: brightness(0.4) hue-rotate(180deg) contrast(1.1);
+}
+
+.capa-texto-cama {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(8, 12, 18, 0.7); /* efecto enfermedad */
+}
+
+.capa-texto-cama:target {
+  display: block;
+}
+
+/* Cita flotando sobre la cama  */
+.texto-cama-principal {
+  position: absolute;
+  bottom: 28vh;
+  right: 5vw;
+  width: 38vw;
+  font-family: 'Libre Baskerville', serif;
+  color: #d0e1fd;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.texto-cama-principal h2 {
+  font-size: 2.2rem;
+  color: #8ab4f8;
+  margin-bottom: 4px;
+}
+
+.texto-cama-principal .autor {
+  font-style: italic;
+  color: #9aa0a6;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.texto-cama-principal .cita-cama {
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+.texto-cama-principal .cita-cama span {
+  color: #e8eaed;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #8ab4f8;
+}
+
+/* Contenedor del suelo */
+.lluvia-suelo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 35vh; /*  área del suelo  */
+  pointer-events: none;
+}
+
+/* Estilo de frases que caen al suelo */
+.frase-caida {
+  position: absolute;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
+  color: #a6c8ff;
+  opacity: 0;
+  pointer-events: auto;
+  white-space: nowrap;
+  text-shadow: 1px 1px 4px #000000;
+  animation: caerAlSuelo 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.frase-caida:hover {
+  color: #ffffff;
+  transform: scale(1.1) !important;
+  text-shadow: 0 0 12px #8ab4f8;
+}
+
+/* Animación de caída  */
+@keyframes caerAlSuelo {
+  0% {
+    top: 50vh; /* sale a  la altura de la cama */
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    top: var(--destino-y); 
+    opacity: 0.75;
+  }
+}
+
+.btn-cerrar-cama {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #8ab4f8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Libre Baskerville', serif;
+  background: rgba(10, 15, 25, 0.85);
+  padding: 10px 18px;
+  border-radius: 4px;
+  z-index: 40;
+  border: 1px solid rgba(138, 180, 248, 0.3);
+}
+
+.btn-cerrar-cama:hover {
+  background: #8ab4f8;
+  color: #080c12;
 }
