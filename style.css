@@ -158,7 +158,9 @@ body, html {
 }
 
 
-/*  ESTILOS DE LA PARED CHARLOTTE PERKINS GILMAN */
+/* ========================================================
+   ESTILOS DE LA PARED 
+   ======================================================== */
 .capa-texto-pared {
   display: none;
   position: fixed;
@@ -166,77 +168,92 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Fondo atenuado tenue para dar lectura sobre el fondo */
-  background-color: rgba(18, 13, 7, 0.85);
+
+  background-color: rgba(10, 8, 5, 0.85);
   z-index: 30;
-  overflow-y: auto;
-  padding: 50px 0 50px 5vw; /* Alineado hacia el margen izquierdo */
-}
+  overflow: hidden; 
+  perspective: 1200px; 
 
 .capa-texto-pared:target {
   display: block;
 }
 
+
 .lienzo-pared {
-  max-width: 38vw; /* Limita el texto estrictamente al área de la pared izquierda */
-  margin: 0; /* Sin centrado automático */
-  font-family: 'Fraunces', serif; /* Tipografía Fraunces */
-  line-height: 1.8;
+  position: absolute;
+  top: 6vh;
+  left: 2vw;
+  width: 32vw; 
+  height: 88vh;
+  padding: 20px;
+  overflow-y: auto; 
+
+  /* Transformación en perspectiva 3D para acoplar al ángulo de la ilustración */
+  transform-origin: left center;
+  transform: rotateY(24deg) skewY(2deg);
+
+  font-family: 'Fraunces', serif;
+  line-height: 1.7;
+}
+
+
+.lienzo-pared::-webkit-scrollbar {
+  width: 0px;
 }
 
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  color: #e5c158;
-  font-size: 2.2rem;
-  margin-bottom: 5px;
-  text-shadow: none; /* Sin resplandor */
+  color: #d4ac0d;
+  font-size: 2.6rem; /* Puntaje alto */
+  margin-bottom: 2px;
+  text-shadow: none; /* Austero, sin brillos */
 }
 
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  color: #a89f91;
-  font-size: 1.1rem;
-  margin-bottom: 35px;
+  color: #8c7b60;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
 }
 
 .cuerpo-pared p {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
-/* EFECTO HOVER AUSTERO CON TIPOGRAFÍA FRAUNCES Y PUNTAJE DE 25PX */
+
 .cuerpo-pared span {
-  opacity: 0.22; /* Se intuye tenazmente sobre la pared */
-  filter: blur(1.5px);
-  color: #cbb47e;
+  opacity: 0.25; /* Tenue  */
+  filter: blur(1px);
+  color: #2b2216; /* desgastada */
   font-family: 'Fraunces', serif;
-  font-size: 25px; /* Puntaje de 25px */
-  font-weight: 400;
+  font-size: 28px; /* Puntaje alto  */
+  font-weight: 500;
   display: inline-block;
   transition: opacity 0.2s ease, filter 0.2s ease, color 0.2s ease;
   cursor: default;
   margin-right: 4px;
-  text-shadow: none; /* Austero, sin brillos */
+  text-shadow: none; 
 }
 
-/* Al pasar el cursor (hover), la palabra simplemente se aclara y cobra nitidez */
+
 .cuerpo-pared span:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #fceabb; /* Tinta clara austera */
+  color: #fceabb; /* Blanco hueso / paja claro */
 }
 
-/* Frases destacadas en BOLD con puntaje de 28px */
+
 .cuerpo-pared span.destacado {
-  font-size: 28px; /* Puntaje de 28px */
-  font-weight: 900; /* Bold marcado */
-  color: #d68910;
-  opacity: 0.35;
+  font-size: 34px; /* Puntaje destacado mucho mayor */
+  font-weight: 900; /* Extra bold */
+  color: #3b2e1e;
+  opacity: 0.4;
 }
 
 .cuerpo-pared span.destacado:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #e74c3c; /* Tono rojizo austero sin neón */
+  color: #ffffff; 
 }
