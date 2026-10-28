@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: El GIF paisaje detrás */
+/* Capa 1 gif */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ body, html {
   object-fit: cover;
 }
 
-/* Capa 2: La habitación superpuesta */
+/* Capa 2: La habitación  */
 .capa-habitacion {
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto estándar (Woolf y Storni) */
+/* Capas de texto  (Woolf y Storni) */
 .capa-texto {
   display: none;
   position: fixed;
@@ -159,11 +159,9 @@ body, html {
 }
 
 
-/* ========================================================
-   EFECTO LINTERNA MUCHO MÁS AMPIO (CHARLOTTE PERKINS GILMAN)
-   ======================================================== */
+/*  Efecto linterna */
 
-/* Atenuación sutil de la habitación */
+/* Atenuación del cuarto */
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
 }
@@ -177,10 +175,10 @@ body:has(#perkins:target) .capa-habitacion {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  cursor: pointer; /* Indica que al hacer clic en cualquier parte se cierra */
+  cursor: pointer; 
   background-color: rgba(10, 8, 5, 0.85);
   
-  /* Máscara radial de la linterna MUCHO MÁS AMPLIA (450px) */
+  /*  linterna a 450px */
   --x: 50%;
   --y: 50%;
   mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
@@ -191,12 +189,12 @@ body:has(#perkins:target) .capa-habitacion {
   display: block;
 }
 
-/* Lienzo que ocupa la pared sin apretar el texto */
+
 .lienzo-pared {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 48vw; /* Caja de texto más ancha */
+  width: 48vw; /* Caja de texto ancha */
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -233,15 +231,15 @@ body:has(#perkins:target) .capa-habitacion {
   line-height: 1.7;
 }
 
-/* Frases destacadas en Fraunces Bold a 38px */
+/* Frases destacadas en Fraunces */
 .cuerpo-pared span.destacado {
   font-family: 'Fraunces', serif !important;
-  font-size: 38px;
+  font-size: 39px;
   font-weight: 900;
   color: #f39c12;
 }
 
-/* Halo luminoso flotante MUCHO MÁS GRANDE (900px x 900px) */
+/* Halo luminoso flotante  */
 .halo-linterna {
   position: fixed;
   top: 0;
@@ -261,7 +259,7 @@ body:has(#perkins:target) .halo-linterna {
   display: block;
 }
 
-/* Botón flotante indicativo */
+/* Botón flotante  */
 .btn-cerrar-pared {
   position: fixed;
   top: 25px;
