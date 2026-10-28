@@ -317,7 +317,7 @@ body:has(#woolf:target) .capa-habitacion {
 .texto-cama-principal h2 {
   font-size: 2.2rem;
   color: #8ab4f8;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .texto-cama-principal .autor {
@@ -344,7 +344,7 @@ body:has(#woolf:target) .capa-habitacion {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
   pointer-events: none;
   z-index: 32;
@@ -354,8 +354,8 @@ body:has(#woolf:target) .capa-habitacion {
 .frase-caida {
   position: absolute;
   font-family: 'Libre Baskerville', serif;
-  font-size: 22px;
-  color: #a6c8ff;
+  font-size: 40px;
+  color: #654321;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
@@ -365,13 +365,13 @@ body:has(#woolf:target) .capa-habitacion {
 }
 
 .frase-caida:hover {
-  color: #ffffff;
+  color: #708238;
   transform: scale(1.12) !important;
   text-shadow: 0 0 12px #8ab4f8;
 }
 
 /* caída desde la cama al piso */
-@keyframes caerAlSuelo {
+@keyframes caeralsuelo {
   0% {
     top: 55vh;
     opacity: 0;
