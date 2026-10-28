@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* C paisaje gif al fondo */
+/* Capa 1: gif detrás */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ body, html {
   object-fit: cover;
 }
 
-/* Capa 2: La habitación  */
+/* Capa 2: La habitación superpuesta */
 .capa-habitacion {
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@ body, html {
   object-fit: fill;
 }
 
-/* Capa 3: interactiva */
+/* Capa 3: Zonas interactivas */
 .capa-interactiva {
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto de Storni */
+/* Capas de texto storni */
 .capa-texto {
   display: none;
   position: fixed;
@@ -155,7 +155,7 @@ body, html {
 }
 
 
-/*  EFECTO LINTERNA CHARLOTTE PERKINS  */
+/* EFECTO LINTERNA */
 
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
@@ -187,7 +187,7 @@ body:has(#perkins:target) .capa-habitacion {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 32vw; /* tamaño caja de texto */
+  width: 48vw;
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -272,7 +272,7 @@ body:has(#perkins:target) .halo-linterna {
 }
 
 
-/*  LLUVIA DE FRASES EN EL SUELO VIRGINIA WOOLF */
+/* LA CAMA Y LA LLUVIA DE FRASES EN EL SUELO  */
 
 /* Al activar la cama (#woolf), la habitación entra en un tono azulino frío */
 body:has(#woolf:target) .capa-habitacion {
@@ -289,14 +289,14 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 30;
   overflow: hidden;
   cursor: pointer;
-  background: rgba(8, 12, 18, 0.7); /* efecto enfermedad */
+  background: rgba(8, 12, 18, 0.7); /* Penumbra fría de enfermedad */
 }
 
 .capa-texto-cama:target {
   display: block;
 }
 
-/* Cita flotando sobre la cama  */
+/* Cita flotando sobre la cama */
 .texto-cama-principal {
   position: absolute;
   bottom: 28vh;
@@ -338,11 +338,11 @@ body:has(#woolf:target) .capa-habitacion {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 35vh; /*  área del suelo  */
+  height: 35vh; /* Ocupa el área del suelo de madera */
   pointer-events: none;
 }
 
-/* Estilo de frases que caen al suelo */
+/* Estilo de cada frase que cae al suelo */
 .frase-caida {
   position: absolute;
   font-family: 'Libre Baskerville', serif;
@@ -362,17 +362,17 @@ body:has(#woolf:target) .capa-habitacion {
   text-shadow: 0 0 12px #8ab4f8;
 }
 
-/* Animación de caída  */
+/* Animación de caída por gravedad */
 @keyframes caerAlSuelo {
   0% {
-    top: 50vh; /* sale a  la altura de la cama */
+    top: 50vh; /* cae desde la cama */
     opacity: 0;
   }
   60% {
     opacity: 0.9;
   }
   100% {
-    top: var(--destino-y); 
+    top: var(--destino-y); /* coordenada suelo */
     opacity: 0.75;
   }
 }
