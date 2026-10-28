@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: El GIF paisaje detrás de la ventana */
+/* Capa 1: El GIF paisaje detrás */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -122,6 +122,10 @@ body, html {
   z-index: 40;
 }
 
+.btn-cerrar:hover {
+  color: #ffffff;
+}
+
 .contenido-modal {
   max-width: 700px;
   margin: 40px auto;
@@ -156,10 +160,10 @@ body, html {
 
 
 /* ========================================================
-   EFECTO LINTERNA SOBRE LA PARED COMPLETA (CHARLOTTE PERKINS)
+   EFECTO LINTERNA CON CÍRCULO REFLECTOR Y PUNTAJE GRANDE
    ======================================================== */
 
-/* Al activar el modo pared (#perkins), atenuamos la luz general de la habitación */
+/* Atenuación tenue de la habitación en modo pared */
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
 }
@@ -173,24 +177,30 @@ body:has(#perkins:target) .capa-habitacion {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  background: rgba(10, 7, 4, 0.25); /* Velo muy sutil para dar clima de penumbra */
+  background-color: rgba(10, 8, 5, 0.75);
+  
+  /* Máscara radial de la linterna */
+  --x: 50%;
+  --y: 50%;
+  mask-image: radial-gradient(circle 240px at var(--x) var(--y), black 25%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 240px at var(--x) var(--y), black 25%, transparent 100%);
 }
 
 .capa-texto-pared:target {
   display: block;
 }
 
-/* Lienzo ampliado para abarcar TODA la pared izquierda */
+/* Lienzo amplio posicionado en la pared izquierda */
 .lienzo-pared {
   position: absolute;
-  top: 4vh;
-  left: 2vw;
-  width: 35vw; /* Ampliado para cubrir toda la superficie de la pared amarilla */
-  height: 92vh;
+  top: 5vh;
+  left: 3vw;
+  width: 35vw;
+  height: 90vh;
   overflow-y: auto;
   padding-right: 20px;
   font-family: 'Fraunces', serif;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .lienzo-pared::-webkit-scrollbar {
@@ -200,59 +210,53 @@ body:has(#perkins:target) .capa-habitacion {
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  color: #e5c158;
-  font-size: 2.4rem;
+  color: #f1c40f;
+  font-size: 2.8rem;
   margin-bottom: 2px;
-  opacity: 0.9;
 }
 
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
   color: #a89f91;
-  font-size: 1.15rem;
-  margin-bottom: 30px;
+  font-size: 1.3rem;
+  margin-bottom: 35px;
 }
 
 .cuerpo-pared p {
-  margin-bottom: 22px;
-}
-
-/* PALABRAS EN PENUMBRA CON CURSOR NORMAL */
-.cuerpo-pared span {
-  opacity: 0.18; /* Sombra sutil grabada en la pared */
-  filter: blur(1.2px);
-  color: #2b2216; /* Tinta oscura desgastada */
+  margin-bottom: 26px;
   font-family: 'Fraunces', serif;
-  font-size: 25px; /* Puntaje de 25px */
+  font-size: 32px;
   font-weight: 500;
-  display: inline-block;
-  transition: opacity 0.3s ease, filter 0.3s ease, color 0.3s ease;
-  cursor: default; /* Cursor normal, sin la cruz */
-  margin-right: 4px;
+  color: #fff8dc;
+  line-height: 1.7;
 }
 
-/* EFECTO LINTERNA: Iluminación de palabras bajo el puntero */
-.cuerpo-pared span:hover {
-  opacity: 1;
-  filter: blur(0px);
-  color: #ffffff; /* Blanco hueso austero y brillante */
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6), 0 0 4px #e5c158;
-}
-
-/* Frases destacadas / obsesivas: 28px BOLD */
+/* Frases destacadas / obsesivas */
 .cuerpo-pared span.destacado {
-  font-size: 28px; /* Puntaje de 28px */
-  font-weight: 900; /* Bold */
-  color: #3b2e1e;
-  opacity: 0.28;
+  font-size: 38px;
+  font-weight: 900;
+  color: #f39c12;
 }
 
-.cuerpo-pared span.destacado:hover {
-  opacity: 1;
-  filter: blur(0px);
-  color: #fff3cc;
-  text-shadow: 0 0 15px rgba(255, 243, 204, 0.8), 0 0 6px #e5c158;
+/* Círculo luminoso flotante que acompaña al cursor */
+.halo-linterna {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 35;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 243, 204, 0.22) 0%, rgba(229, 193, 88, 0.1) 50%, transparent 80%);
+  box-shadow: 0 0 35px rgba(255, 230, 150, 0.2);
+  display: none;
+}
+
+body:has(#perkins:target) .halo-linterna {
+  display: block;
 }
 
 /* Botón flotante para volver */
@@ -269,7 +273,6 @@ body:has(#perkins:target) .capa-habitacion {
   border-radius: 4px;
   z-index: 40;
   border: 1px solid rgba(229, 193, 88, 0.3);
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn-cerrar-pared:hover {
