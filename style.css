@@ -161,26 +161,6 @@ body, html {
 /* ========================================================
    ESTILOS DE LA PARED 
    ======================================================== */
-
-/* ========================================================
-   EFECTO ZOOM Y LECTURA DIRECTA EN PARED (SIN VENTANA)
-   ======================================================== */
-
-/* Transición suave para que la habitación haga zoom */
-.escenario {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  transform-origin: left top; /* El zoom se enfoca hacia la pared izquierda */
-}
-
-/* Cuando se selecciona la pared (#perkins), la habitación completa hace ZOOM IN */
-body:has(#perkins:target) .escenario {
-  transform: scale(2.6) translate(5vw, 5vh); /* Agranda y enfoca la pared de la izquierda */
-}
-
-/* Capa transparente sobre la pared para leer directamente */
 .capa-texto-pared {
   display: none;
   position: fixed;
@@ -188,29 +168,30 @@ body:has(#perkins:target) .escenario {
   left: 0;
   width: 100vw;
   height: 100vh;
+  /* Fondo atenuado que enfoca la pared izquierda sin tapar la ilustración */
+  background: rgba(12, 9, 5, 0.75);
   z-index: 30;
   overflow: hidden;
-  background: transparent; /* Sin fondo oscuro para ver la pared real con zoom */
 }
 
 .capa-texto-pared:target {
   display: block;
 }
 
-/* Lienzo de texto ubicado perfectamente sobre el papel tapiz ampliado */
+/* Alineamos la caja de lectura exactamente sobre la pared izquierda */
 .lienzo-pared {
   position: absolute;
-  top: 10vh;
-  left: 6vw;
-  width: 85vw; /* Ocupa casi toda la pantalla en zoom */
-  height: 80vh;
+  top: 6vh;
+  left: 3vw;
+  width: 28vw; /* Ancho ajustado estrictamente a la pared de la izquierda */
+  height: 88vh;
   overflow-y: auto;
-  padding-right: 20px;
+  padding-right: 15px;
   font-family: 'Fraunces', serif;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
-/* Ocultar barra de scroll para no romper la ilusión */
+/* Ocultar barra de scroll para no dañar la estética */
 .lienzo-pared::-webkit-scrollbar {
   width: 0px;
 }
@@ -218,62 +199,62 @@ body:has(#perkins:target) .escenario {
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  color: #3b2e1e;
-  font-size: 2.8rem;
+  color: #e5c158;
+  font-size: 2.2rem;
   margin-bottom: 2px;
-  opacity: 0.9;
+  text-shadow: none;
 }
 
 .lienzo-pared .autor {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  color: #5c4d37;
-  font-size: 1.3rem;
-  margin-bottom: 35px;
+  color: #a89f91;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
 }
 
 .cuerpo-pared p {
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
-/* PALABRAS SOBRIAS Y AUSTERAS DIRECTO EN LA PARED */
+/* EFECTO REVELADO SOBRIO Y AUSTERO CON FRAUNCES */
 .cuerpo-pared span {
-  opacity: 0.2; /* Sombra tenue que parece parte de la textura del papel */
-  filter: blur(1.2px);
-  color: #241a0e; /* Tinta oscura desgastada */
+  opacity: 0.25; /* Tenue en reposo, parece grabado en el papel */
+  filter: blur(1px);
+  color: #fceabb;
   font-family: 'Fraunces', serif;
-  font-size: 26px; /* Puntaje amplio y legible */
+  font-size: 25px; /* Puntaje de 25px */
   font-weight: 500;
   display: inline-block;
-  transition: opacity 0.25s ease, filter 0.25s ease, color 0.25s ease;
+  transition: opacity 0.25s ease, filter 0.25s ease;
   cursor: default;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
-/* Revelado sobrio al pasar el cursor */
+/* Al pasar el mouse (hover), la palabra cobra nitidez sin brillos extraños */
 .cuerpo-pared span:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #ffffff; /* Blanco puro que destaca sobre la pared acentuada */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
-/* Frases destacadas en BOLD de 32px */
+/* Frases destacadas en BOLD de 28px */
 .cuerpo-pared span.destacado {
-  font-size: 32px;
-  font-weight: 900;
-  color: #120c06;
-  opacity: 0.35;
+  font-size: 28px; /* Puntaje de 28px */
+  font-weight: 900; /* Bold marcado */
+  color: #e5c158;
+  opacity: 0.4;
 }
 
 .cuerpo-pared span.destacado:hover {
   opacity: 1;
   filter: blur(0px);
-  color: #fff3cc; /* Tono crema claro austero */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.95);
 }
 
-/* Botón flotante sobrio para salir del Zoom */
+/* Botón flotante para regresar a la habitación */
 .btn-cerrar-pared {
   position: fixed;
   top: 25px;
@@ -282,7 +263,7 @@ body:has(#perkins:target) .escenario {
   text-decoration: none;
   font-size: 1.1rem;
   font-family: 'Fraunces', serif;
-  background: rgba(18, 14, 10, 0.8);
+  background: rgba(18, 14, 10, 0.85);
   padding: 10px 18px;
   border-radius: 4px;
   z-index: 40;
