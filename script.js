@@ -1,5 +1,5 @@
 
-// 1.  La pared C.P.G
+// 1. Efecto pared (CHARLOTTE PERKINS GILMAN)
 
 const capaPared = document.getElementById('perkins');
 const haloLinterna = document.getElementById('linterna');
@@ -18,14 +18,15 @@ if (capaPared) {
     }
   });
 
-  capaPared.addEventListener('click', () => {
-    window.location.hash = '';
+  capaPared.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'A') {
+      window.location.hash = '';
+    }
   });
 }
 
 
- 
-// 2. función de la cama y la lluvia
+// 2. cama y caída al suelo Woolf
 
 const frasesWoolf = [
   "cuán tremenda es la alteración espiritual",
@@ -43,10 +44,9 @@ const frasesWoolf = [
 
 const capaCama = document.getElementById('woolf');
 const contenedorLluvia = document.getElementById('lluviaWoolf');
-let lluviaGenerada = false;
 
 function generarCaidaFrases() {
-  if (!contenedorLluvia || lluviaGenerada) return;
+  if (!contenedorLluvia) return;
   contenedorLluvia.innerHTML = '';
 
   frasesWoolf.forEach((frase, index) => {
@@ -55,28 +55,24 @@ function generarCaidaFrases() {
       span.className = 'frase-caida';
       span.innerText = frase;
 
-      // Coordenadas para el piso de madera
-      let posX = Math.random() * 80 + 5; // Entre 5% y 85% del ancho del piso
-      let posY = Math.random() * 20 + 72; // Entre 72vh y 92vh (zona del suelo)
-      let rotacion = Math.random() * 12 - 6; // Pequeña inclinación de -6deg a +6deg
+      // Distribución sobre el piso de madera (parte inferior)
+      let posX = (index % 3) * 28 + Math.random() * 10 + 4; // Distribución en 3 columnas
+      let posY = 70 + Math.floor(index / 3) * 6 + Math.random() * 3; // Escalón vertical en el suelo (70vh a 92vh)
+      let rotacion = Math.random() * 10 - 5; // Inclinación suave (-5deg a +5deg)
 
       span.style.left = `${posX}vw`;
       span.style.setProperty('--destino-y', `${posY}vh`);
       span.style.transform = `rotate(${rotacion}deg)`;
 
       contenedorLluvia.appendChild(span);
-    }, index * 220); // cae en cascadita cada 220ms
+    }, index * 180);
   });
-
-  lluviaGenerada = true;
 }
 
-// usuario interactúa con el texto de woolf
+// Escuchar cambios 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#woolf') {
     generarCaidaFrases();
-  } else {
-    lluviaGenerada = false; // Reinicia para la próxima vez
   }
 });
 
@@ -85,10 +81,18 @@ if (window.location.hash === '#woolf') {
 }
 
 if (capaCama) {
-  capaCama.addEventListener('click', () => {
-    window.location.hash = '';
+  capaCama.addEventListener('click', (e) => {
+    // Si hace clic sobre una frase o en el fondo, no cierra
+    if (e.target.classList.contains('frase-caida')) {
+      e.stopPropagation();
+      return;
+    }
+    if (e.target.tagName !== 'A') {
+      window.location.hash = '';
+    }
   });
 }
+
 
 
 // 3. TECLA GLOBAL
