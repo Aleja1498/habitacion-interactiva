@@ -303,9 +303,9 @@ body:has(#woolf:target) .capa-habitacion {
 /* Texto  de la cama */
 .texto-cama-principal {
   position: absolute;
-  bottom: 8vh; /* puestp directamente sobre las sábanas */
-  right: 2vw;
-  width: 34vw;
+  bottom: 2vh; 
+  right: 1.5vw; 
+  width: 32vw;
   font-family: 'Libre Baskerville', serif;
   color: #fceabb;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
@@ -315,7 +315,7 @@ body:has(#woolf:target) .capa-habitacion {
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 900;
   color: #f1c40f;
   margin-bottom: 2px;
@@ -325,13 +325,13 @@ body:has(#woolf:target) .capa-habitacion {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #cbb47e;
-  font-size: 1.15rem;
-  margin-bottom: 14px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .texto-cama-principal .cita-cama span {
