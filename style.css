@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: El GIF paisaje detrás */
+/* Capa 1: gif paisaje detrás */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto estándar (Storni) */
+/* Capas de texto (Storni) */
 .capa-texto {
   display: none;
   position: fixed;
@@ -159,9 +159,7 @@ body, html {
 }
 
 
-/* ========================================================
-   EFECTO LINTERNA AMPLIO (CHARLOTTE PERKINS GILMAN)
-   ======================================================== */
+/* EFECTO LINTERNA GILMAN)*/
 
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
@@ -278,13 +276,11 @@ body:has(#perkins:target) .halo-linterna {
 }
 
 
-/* ========================================================
-   LA CAMA Y LA LLUVIA EN TONOS CÁLIDOS (VIRGINIA WOOLF)
-   ======================================================== */
+/* LA CAMA Y LA LLUVIA WOOLF
+ */
 
-/* Oscurecimiento cálido en la habitación */
 body:has(#woolf:target) .capa-habitacion {
-  filter: brightness(0.35) contrast(1.1);
+  filter: brightness(0.3) contrast(1.15);
 }
 
 .capa-texto-cama {
@@ -297,52 +293,55 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 30;
   overflow: hidden;
   cursor: pointer;
-  background: rgba(12, 9, 6, 0.7); /* Penumbra tenue cálida */
+  background: rgba(10, 7, 4, 0.65);
 }
 
 .capa-texto-cama:target {
   display: block;
 }
 
-/* Texto principal sobre la cama en tonos dorados/marfil */
+/* Texto  de la cama */
 .texto-cama-principal {
   position: absolute;
-  bottom: 24vh;
-  right: 4vw;
-  width: 40vw;
+  bottom: 8vh; /* puestp directamente sobre las sábanas */
+  right: 2vw;
+  width: 34vw;
   font-family: 'Libre Baskerville', serif;
-  color: #e5dccb;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  color: #fceabb;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
   pointer-events: none;
-  z-index: 31;
+  z-index: 35;
 }
 
 .texto-cama-principal h2 {
-  font-size: 2.2rem;
-  color: #e5c158;
-  margin-bottom: 4px;
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #f1c40f;
+  margin-bottom: 2px;
 }
 
 .texto-cama-principal .autor {
+  font-family: 'Libre Baskerville', serif;
   font-style: italic;
-  color: #a89f91;
-  font-size: 1.1rem;
-  margin-bottom: 18px;
+  color: #cbb47e;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.35rem;
-  line-height: 1.7;
+  font-size: 1.25rem;
+  line-height: 1.6;
 }
 
 .texto-cama-principal .cita-cama span {
   color: #ffffff;
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: #e5c158;
+  text-decoration-color: #f1c40f;
 }
 
-/* Contenedor de la lluvia de frases */
+/* la lluvia de frases */
 .lluvia-suelo {
   position: absolute;
   top: 0;
@@ -353,27 +352,40 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
-/* Frases amontonadas sobre las tablas de madera (Tonos Cálidos / Sepia) */
+/* FRASES EN EL SUELO */
 .frase-caida {
   position: absolute;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 22px;
-  color: #d4ac0d; /* Tono dorado/sepia suave */
+  font-family: 'Fraunces', serif !important; 
+  font-size: 36px; 
+  font-weight: 900; 
+  color: #d4ac0d;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
-  text-shadow: 0 2px 6px #000000;
+  text-shadow: 2px 2px 8px #000000, 0 0 15px rgba(0,0,0,0.8);
   animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.frase-caida:hover {
-  color: #ffffff; /* Blanco hueso nítido al pasar el cursor */
-  transform: scale(1.12) !important;
-  text-shadow: 0 0 12px #e5c158;
+ 
+.frase-caida.pesada {
+  font-size: 42px;
+  color: #f39c12;
 }
 
-/* Animación de caída al suelo */
+.frase-caida.gigante {
+  font-size: 48px;
+  color: #f1c40f;
+}
+
+.frase-caida:hover {
+  color: #ffffff !important;
+  transform: scale(1.15) !important;
+  text-shadow: 0 0 20px #f1c40f, 2px 2px 10px #000000;
+  z-index: 45;
+}
+
+/* Caída */
 @keyframes caerAlSuelo {
   0% {
     top: 55vh;
@@ -384,7 +396,7 @@ body:has(#woolf:target) .capa-habitacion {
   }
   100% {
     top: var(--destino-y);
-    opacity: 0.85;
+    opacity: 0.88;
   }
 }
 
@@ -395,7 +407,7 @@ body:has(#woolf:target) .capa-habitacion {
   color: #e5c158;
   text-decoration: none;
   font-size: 1.1rem;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Fraunces', serif;
   background: rgba(18, 14, 10, 0.85);
   padding: 10px 18px;
   border-radius: 4px;
