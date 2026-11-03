@@ -1,5 +1,5 @@
 
-// 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
+ 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
 
 const capaPared = document.getElementById('perkins');
 const haloLinterna = document.getElementById('linterna');
@@ -25,20 +25,22 @@ if (capaPared) {
   });
 }
 
-// 2. CAMA Y CAÍDA AL SUELO (VIRGINIA WOOLF)
+
+
+ 2. CAMA Y CAÍDA DE FRASES PESADAS (VIRGINIA WOOLF)
 
 const frasesWoolf = [
-  "cuán tremenda es la alteración espiritual",
-  "Monstruo corpóreo",
-  "Desertores",
-  "aguas de la aniquilación cerrarse sobre nuestras cabezas",
-  "el cuerpo interviene; se despunta o se afila",
-  "el cuerpo no es más que una lámina de liso cristal",
-  "Razón en suspenso",
-  "divinamente hermosa, divinamente cruel",
-  "solo quienes yacen recostados saben",
-  "Indiferencia del cielo",
-  "no conocemos nuestras propias almas"
+  { texto: "cuán tremenda es la alteración espiritual", estilo: "pesada" },
+  { texto: "Monstruo corpóreo", estilo: "gigante" },
+  { texto: "Desertores", estilo: "gigante" },
+  { texto: "aguas de la aniquilación cerrarse sobre nuestras cabezas", estilo: "normal" },
+  { texto: "el cuerpo interviene; se despunta o se afila", estilo: "pesada" },
+  { texto: "el cuerpo no es más que una lámina de liso cristal", estilo: "normal" },
+  { texto: "Razón en suspenso", estilo: "gigante" },
+  { texto: "divinamente hermosa, divinamente cruel", estilo: "pesada" },
+  { texto: "solo quienes yacen recostados saben", estilo: "pesada" },
+  { texto: "Indiferencia del cielo", estilo: "normal" },
+  { texto: "no conocemos nuestras propias almas", estilo: "pesada" }
 ];
 
 const capaCama = document.getElementById('woolf');
@@ -48,23 +50,23 @@ function generarCaidaFrases() {
   if (!contenedorLluvia) return;
   contenedorLluvia.innerHTML = '';
 
-  frasesWoolf.forEach((frase, index) => {
+  frasesWoolf.forEach((item, index) => {
     setTimeout(() => {
       let span = document.createElement('span');
-      span.className = 'frase-caida';
-      span.innerText = frase;
+      span.className = `frase-caida ${item.estilo}`;
+      span.innerText = item.texto;
 
-      // Distribución sobre el piso de madera
-      let posX = (index % 3) * 28 + Math.random() * 10 + 4; 
-      let posY = 70 + Math.floor(index / 3) * 6 + Math.random() * 3; 
-      let rotacion = Math.random() * 10 - 5; 
+      // Amontonamiento denso en el suelo bajo y al pie de la cama (de 10vw a 70vw)
+      let posX = Math.random() * 55 + 10; 
+      let posY = 72 + Math.random() * 20; // Se amontonan en la franja del piso (72vh a 92vh)
+      let rotacion = Math.random() * 14 - 7; // Inclinaciones de -7deg a +7deg
 
       span.style.left = `${posX}vw`;
       span.style.setProperty('--destino-y', `${posY}vh`);
       span.style.transform = `rotate(${rotacion}deg)`;
 
       contenedorLluvia.appendChild(span);
-    }, index * 180);
+    }, index * 160);
   });
 }
 
@@ -81,7 +83,6 @@ if (window.location.hash === '#woolf') {
 
 if (capaCama) {
   capaCama.addEventListener('click', (e) => {
-    // Si hace clic sobre una frase o en el fondo, no cierra
     if (e.target.classList.contains('frase-caida')) {
       e.stopPropagation();
       return;
@@ -93,7 +94,8 @@ if (capaCama) {
 }
 
 
-// 3. TECLA ESCAPE
+
+3. TECLA ESCAPE GLOBAL
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     window.location.hash = '';
