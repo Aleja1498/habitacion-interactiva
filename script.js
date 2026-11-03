@@ -1,6 +1,6 @@
-// 
+// ========================================================
 // 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
-// 
+// ========================================================
 const capaPared = document.getElementById('perkins');
 const haloLinterna = document.getElementById('linterna');
 
@@ -26,9 +26,9 @@ if (capaPared) {
 }
 
 
-// 
-// 2. CAMA Y CAÍDA DE FRASES PESADAS (VIRGINIA WOOLF)
-//
+// ========================================================
+// 2. CAMA Y CAÍDA A LA IZQUIERDA EN EL SUELO (VIRGINIA WOOLF)
+// ========================================================
 const frasesWoolf = [
   { texto: "cuán tremenda es la alteración espiritual", estilo: "pesada" },
   { texto: "Monstruo corpóreo", estilo: "gigante" },
@@ -56,9 +56,10 @@ function generarCaidaFrases() {
       span.className = `frase-caida ${item.estilo}`;
       span.innerText = item.texto;
 
-      let posX = Math.random() * 55 + 10; 
-      let posY = 72 + Math.random() * 20; 
-      let rotacion = Math.random() * 14 - 7; 
+      // Caída al piso desplazada hacia la izquierda (de 4vw a 55vw) para no tapar la cama
+      let posX = Math.random() * 48 + 4; 
+      let posY = 75 + Math.random() * 16; // Caída estricta al suelo de madera (75vh a 91vh)
+      let rotacion = Math.random() * 12 - 6; 
 
       span.style.left = `${posX}vw`;
       span.style.setProperty('--destino-y', `${posY}vh`);
@@ -69,6 +70,7 @@ function generarCaidaFrases() {
   });
 }
 
+// Escuchar cambios de Hash
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#woolf') {
     generarCaidaFrases();
@@ -92,9 +94,9 @@ if (capaCama) {
 }
 
 
-// 
+// ========================================================
 // 3. TECLA ESCAPE GLOBAL
-// 
+// ========================================================
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     window.location.hash = '';
