@@ -1,105 +1,426 @@
-// ========================================================
-// 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
-// ========================================================
-const capaPared = document.getElementById('perkins');
-const haloLinterna = document.getElementById('linterna');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-if (capaPared) {
-  capaPared.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0d0a07;
+}
 
-    capaPared.style.setProperty('--x', `${x}px`);
-    capaPared.style.setProperty('--y', `${y}px`);
+.escenario {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 
-    if (haloLinterna) {
-      haloLinterna.style.left = `${x}px`;
-      haloLinterna.style.top = `${y}px`;
-    }
-  });
+/* Capa 1: El GIF paisaje detrás */
+.capa-paisaje {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-  capaPared.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'A') {
-      window.location.hash = '';
-    }
-  });
+.gif-paisaje {
+  position: absolute;
+  top: 19%;
+  left: 39%;
+  width: 22%;
+  height: 38%;
+  object-fit: cover;
+}
+
+/* Capa 2: La habitación superpuesta */
+.capa-habitacion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: filter 0.6s ease;
+}
+
+.img-habitacion {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/* Capa 3: Zonas interactivas */
+.capa-interactiva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.zona {
+  position: absolute;
+  cursor: pointer;
+}
+
+.zona-cama {
+  bottom: 0%;
+  right: 0%;
+  width: 38%;
+  height: 45%;
+}
+
+.zona-pared {
+  top: 0%;
+  left: 0%;
+  width: 28%;
+  height: 100%;
+}
+
+.zona-espejo {
+  top: 22%;
+  right: 0%;
+  width: 12%;
+  height: 45%;
+}
+
+/* Capas de texto estándar (Storni) */
+.capa-texto {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(18, 14, 10, 0.95);
+  color: #e5dccb;
+  z-index: 10;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+.capa-texto:target {
+  display: block;
+}
+
+.btn-cerrar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 40;
+}
+
+.btn-cerrar:hover {
+  color: #ffffff;
+}
+
+.contenido-modal {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  line-height: 1.8;
+}
+
+.contenido-modal h2 {
+  font-size: 2.2rem;
+  color: #e5c158;
+  margin-bottom: 5px;
+}
+
+.contenido-modal .autor {
+  font-style: italic;
+  color: #a89f91;
+  margin-bottom: 30px;
+}
+
+.contenido-modal p {
+  margin-bottom: 18px;
+}
+
+.destacado {
+  color: #e5c158;
+  font-weight: bold;
+}
+
+.frases-lluvia {
+  display: none;
 }
 
 
-// ========================================================
-// 2. CAMA Y CAÍDA EN EL SUELO (VIRGINIA WOOLF)
-// ========================================================
-const frasesWoolf = [
-  { texto: "cuán tremenda es la alteración espiritual", estilo: "pesada" },
-  { texto: "Monstruo corpóreo", estilo: "gigante" },
-  { texto: "Desertores", estilo: "gigante" },
-  { texto: "aguas de la aniquilación cerrarse sobre nuestras cabezas", estilo: "normal" },
-  { texto: "el cuerpo interviene; se despunta o se afila", estilo: "pesada" },
-  { texto: "el cuerpo no es más que una lámina de liso cristal", estilo: "normal" },
-  { texto: "Razón en suspenso", estilo: "gigante" },
-  { texto: "divinamente hermosa, divinamente cruel", estilo: "pesada" },
-  { texto: "solo quienes yacen recostados saben", estilo: "pesada" },
-  { texto: "Indiferencia del cielo", estilo: "normal" },
-  { texto: "no conocemos nuestras propias almas", estilo: "pesada" }
-];
+/* ========================================================
+   EFECTO LINTERNA AMPLIO (CHARLOTTE PERKINS GILMAN)
+   ======================================================== */
 
-const capaCama = document.getElementById('woolf');
-const contenedorLluvia = document.getElementById('lluviaWoolf');
-
-function generarCaidaFrases() {
-  if (!contenedorLluvia) return;
-  contenedorLluvia.innerHTML = '';
-
-  frasesWoolf.forEach((item, index) => {
-    setTimeout(() => {
-      let span = document.createElement('span');
-      span.className = `frase-caida ${item.estilo}`;
-      span.innerText = item.texto;
-
-      // Caída al piso de madera a la izquierda de la cama
-      let posX = Math.random() * 45 + 5; // De 5vw a 50vw
-      let posY = 72 + Math.random() * 18; // De 72vh a 90vh (piso)
-      let rotacion = Math.random() * 12 - 6;
-
-      span.style.left = `${posX}vw`;
-      span.style.setProperty('--destino-y', `${posY}vh`);
-      span.style.transform = `rotate(${rotacion}deg)`;
-
-      contenedorLluvia.appendChild(span);
-    }, index * 140);
-  });
+body:has(#perkins:target) .capa-habitacion {
+  filter: brightness(0.35) contrast(1.1);
 }
 
-// Ejecución al cambiar hash
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#woolf') {
-    generarCaidaFrases();
+.capa-texto-pared {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgba(10, 8, 5, 0.85);
+  
+  --x: 50%;
+  --y: 50%;
+  mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
+}
+
+.capa-texto-pared:target {
+  display: block;
+}
+
+.lienzo-pared {
+  position: absolute;
+  top: 4vh;
+  left: 3vw;
+  width: 32vw;
+  height: 92vh;
+  overflow-y: auto;
+  padding-right: 25px;
+  font-family: 'Fraunces', serif !important;
+  line-height: 1.8;
+}
+
+.lienzo-pared::-webkit-scrollbar {
+  width: 0px;
+}
+
+.lienzo-pared h2 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 900;
+  color: #f1c40f;
+  font-size: 2.8rem;
+  margin-bottom: 2px;
+}
+
+.lienzo-pared .autor {
+  font-family: 'Fraunces', serif !important;
+  font-style: italic;
+  color: #a89f91;
+  font-size: 1.3rem;
+  margin-bottom: 35px;
+}
+
+.cuerpo-pared p {
+  margin-bottom: 26px;
+  font-family: 'Fraunces', serif !important;
+  font-size: 32px;
+  font-weight: 500;
+  color: #fff8dc;
+  line-height: 1.7;
+}
+
+.cuerpo-pared span.destacado {
+  font-family: 'Fraunces', serif !important;
+  font-size: 38px;
+  font-weight: 900;
+  color: #f39c12;
+}
+
+.halo-linterna {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 35;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 243, 204, 0.22) 0%, rgba(229, 193, 88, 0.1) 45%, transparent 80%);
+  box-shadow: 0 0 60px rgba(255, 230, 150, 0.25);
+  display: none;
+}
+
+body:has(#perkins:target) .halo-linterna {
+  display: block;
+}
+
+.btn-cerrar-pared {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Fraunces', serif !important;
+  background: rgba(18, 14, 10, 0.85);
+  padding: 10px 18px;
+  border-radius: 4px;
+  z-index: 40;
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  pointer-events: auto;
+}
+
+.btn-cerrar-pared:hover {
+  background: #e5c158;
+  color: #120e0a;
+}
+
+
+/* ========================================================
+   LA CAMA Y LA LLUVIA EN EL SUELO (VIRGINIA WOOLF)
+   ======================================================== */
+
+body:has(#woolf:target) .capa-habitacion {
+  filter: brightness(0.3) contrast(1.15);
+}
+
+.capa-texto-cama {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(10, 7, 4, 0.65);
+}
+
+.capa-texto-cama:target {
+  display: block;
+}
+
+/* TEXTO PRINCIPAL: Inclinado en diagonal hacia la pared izquierda y elevado sobre las sábanas */
+.texto-cama-principal {
+  position: absolute;
+  bottom: 22vh; /* Elevado sobre el cuerpo del colchón */
+  right: 6vw;  /* Desplazado hacia el cuerpo de la cama */
+  width: 32vw;
+  font-family: 'Libre Baskerville', serif;
+  color: #fceabb;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+  z-index: 40;
+  
+  /* PERSPECTIVA Y ROTACIÓN EN DIAGONAL HACIA LA PARED IZQUIERDA */
+  transform: rotate(-6deg) skewY(-2deg);
+  transform-origin: bottom right;
+}
+
+.texto-cama-principal h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #f1c40f;
+  margin-bottom: 2px;
+}
+
+.texto-cama-principal .autor {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  color: #cbb47e;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.texto-cama-principal .cita-cama {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.texto-cama-principal .cita-cama span {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #f1c40f;
+}
+
+.lluvia-suelo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 32;
+}
+
+/* FRASES PESADAS EN EL SUELO */
+.frase-caida {
+  position: absolute;
+  font-family: 'Fraunces', serif !important;
+  font-size: 30px;
+  font-weight: 900;
+  color: #d4ac0d;
+  opacity: 0;
+  pointer-events: auto;
+  white-space: nowrap;
+  text-shadow: 2px 2px 8px #000000, 0 0 15px rgba(0,0,0,0.8);
+  animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.frase-caida.pesada {
+  font-size: 36px;
+  color: #f39c12;
+}
+
+.frase-caida.gigante {
+  font-size: 42px;
+  color: #f1c40f;
+}
+
+.frase-caida:hover {
+  color: #ffffff !important;
+  transform: scale(1.15) !important;
+  text-shadow: 0 0 20px #f1c40f, 2px 2px 10px #000000;
+  z-index: 45;
+}
+
+@keyframes caerAlSuelo {
+  0% {
+    top: 40vh;
+    opacity: 0;
   }
-});
-
-// Ejecución inicial si ya está en #woolf
-if (window.location.hash === '#woolf') {
-  generarCaidaFrases();
-}
-
-if (capaCama) {
-  capaCama.addEventListener('click', (e) => {
-    if (e.target.classList.contains('frase-caida')) {
-      e.stopPropagation();
-      return;
-    }
-    if (e.target.tagName !== 'A') {
-      window.location.hash = '';
-    }
-  });
-}
-
-
-// ========================================================
-// 3. TECLA ESCAPE GLOBAL
-// ========================================================
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    window.location.hash = '';
+  50% {
+    opacity: 0.95;
   }
-});
+  100% {
+    top: var(--destino-y);
+    opacity: 0.88;
+  }
+}
+
+.btn-cerrar-cama {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Fraunces', serif;
+  background: rgba(18, 14, 10, 0.85);
+  padding: 10px 18px;
+  border-radius: 4px;
+  z-index: 50;
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  pointer-events: auto;
+}
+
+.btn-cerrar-cama:hover {
+  background: #e5c158;
+  color: #120e0a;
+}
