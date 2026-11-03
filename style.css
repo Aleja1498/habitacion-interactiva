@@ -303,12 +303,12 @@ body:has(#woolf:target) .capa-habitacion {
   display: block;
 }
 
-/* TEXTO PRINCIPAL: Elevado sobre la parte superior de la cama */
+/* TEXTO PRINCIPAL: Asentado SOBRE la falda/cobija de la cama */
 .texto-cama-principal {
   position: absolute;
-  bottom: 28vh;
-  right: 3vw;
-  width: 30vw;
+  bottom: 6%; /* Bajado para descansar sobre las cobijas inferiores */
+  right: 3%;
+  width: 32vw;
   font-family: 'Libre Baskerville', serif;
   color: #fceabb;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
@@ -318,7 +318,7 @@ body:has(#woolf:target) .capa-habitacion {
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 900;
   color: #f1c40f;
   margin-bottom: 2px;
@@ -329,11 +329,11 @@ body:has(#woolf:target) .capa-habitacion {
   font-style: italic;
   color: #cbb47e;
   font-size: 1.1rem;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -354,15 +354,69 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
-/* FRASES PESADAS EN EL SUELO */
+/* FRASES EN EL SUELO */
 .frase-caida {
   position: absolute;
   font-family: 'Fraunces', serif !important;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
   color: #d4ac0d;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
   text-shadow: 2px 2px 8px #000000, 0 0 15px rgba(0,0,0,0.8);
-  animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5,
+  animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.frase-caida.pesada {
+  font-size: 36px;
+  color: #f39c12;
+}
+
+.frase-caida.gigante {
+  font-size: 42px;
+  color: #f1c40f;
+}
+
+.frase-caida:hover {
+  color: #ffffff !important;
+  transform: scale(1.15) !important;
+  text-shadow: 0 0 20px #f1c40f, 2px 2px 10px #000000;
+  z-index: 45;
+}
+
+@keyframes caerAlSuelo {
+  0% {
+    top: 40vh;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    top: var(--destino-y);
+    opacity: 0.88;
+  }
+}
+
+.btn-cerrar-cama {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Fraunces', serif;
+  background: rgba(18, 14, 10, 0.85);
+  padding: 10px 18px;
+  border-radius: 4px;
+  z-index: 50;
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  pointer-events: auto;
+}
+
+.btn-cerrar-cama:hover {
+  background: #e5c158;
+  color: #120e0a;
+}
