@@ -27,7 +27,7 @@ if (capaPared) {
 
 
 // ========================================================
-// 2. CAMA Y CAÍDA A LA IZQUIERDA EN EL SUELO (VIRGINIA WOOLF)
+// 2. CAMA Y CAÍDA EN EL SUELO (VIRGINIA WOOLF)
 // ========================================================
 const frasesWoolf = [
   { texto: "cuán tremenda es la alteración espiritual", estilo: "pesada" },
@@ -56,27 +56,28 @@ function generarCaidaFrases() {
       span.className = `frase-caida ${item.estilo}`;
       span.innerText = item.texto;
 
-      // Caída al piso desplazada hacia la izquierda (de 4vw a 55vw) para no tapar la cama
-      let posX = Math.random() * 48 + 4; 
-      let posY = 75 + Math.random() * 16; // Caída estricta al suelo de madera (75vh a 91vh)
-      let rotacion = Math.random() * 12 - 6; 
+      // Caída al piso de madera a la izquierda de la cama
+      let posX = Math.random() * 45 + 5; // De 5vw a 50vw
+      let posY = 72 + Math.random() * 18; // De 72vh a 90vh (piso)
+      let rotacion = Math.random() * 12 - 6;
 
       span.style.left = `${posX}vw`;
       span.style.setProperty('--destino-y', `${posY}vh`);
       span.style.transform = `rotate(${rotacion}deg)`;
 
       contenedorLluvia.appendChild(span);
-    }, index * 160);
+    }, index * 140);
   });
 }
 
-// Escuchar cambios de Hash
+// Ejecución al cambiar hash
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#woolf') {
     generarCaidaFrases();
   }
 });
 
+// Ejecución inicial si ya está en #woolf
 if (window.location.hash === '#woolf') {
   generarCaidaFrases();
 }
