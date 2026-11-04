@@ -89,7 +89,15 @@ body, html {
   height: 45%;
 }
 
-/* Capas de texto estándar (Storni) */
+.zona-puerta {
+  top: 18%;
+  left: 63%;
+  width: 14%;
+  height: 65%;
+  cursor: pointer;
+}
+
+/* Capas de texto estándar (Storni - Espejo) */
 .capa-texto {
   display: none;
   position: fixed;
@@ -160,7 +168,7 @@ body, html {
 
 
 /* ========================================================
-   EFECTO LINTERNA AMPLIO (CHARLOTTE PERKINS GILMAN)
+   EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN)
    ======================================================== */
 
 body:has(#perkins:target) .capa-habitacion {
@@ -303,38 +311,40 @@ body:has(#woolf:target) .capa-habitacion {
   display: block;
 }
 
-/* TEXTO PRINCIPAL: Asentado SOBRE la falda/cobija de la cama */
+/* CITA PRINCIPAL: Ampliada para lectura clara */
 .texto-cama-principal {
   position: absolute;
-  bottom: 6%; /* Bajado para descansar sobre las cobijas inferiores */
-  right: 3%;
-  width: 32vw;
+  bottom: 20vh;
+  right: 4vw;
+  width: 36vw;
   font-family: 'Libre Baskerville', serif;
   color: #fceabb;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   z-index: 40;
+  transform: rotate(-5deg);
+  transform-origin: bottom right;
 }
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 2.3rem;
+  font-size: 3rem;
   font-weight: 900;
   color: #f1c40f;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .texto-cama-principal .autor {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #cbb47e;
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.45rem;
+  line-height: 1.65;
 }
 
 .texto-cama-principal .cita-cama span {
@@ -354,11 +364,11 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
-/* FRASES EN EL SUELO */
+/* FRASES PESADAS EN EL SUELO */
 .frase-caida {
   position: absolute;
   font-family: 'Fraunces', serif !important;
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 900;
   color: #d4ac0d;
   opacity: 0;
@@ -370,12 +380,12 @@ body:has(#woolf:target) .capa-habitacion {
 }
 
 .frase-caida.pesada {
-  font-size: 36px;
+  font-size: 44px;
   color: #f39c12;
 }
 
 .frase-caida.gigante {
-  font-size: 42px;
+  font-size: 52px;
   color: #f1c40f;
 }
 
@@ -388,7 +398,7 @@ body:has(#woolf:target) .capa-habitacion {
 
 @keyframes caerAlSuelo {
   0% {
-    top: 40vh;
+    top: 35vh;
     opacity: 0;
   }
   50% {
@@ -419,11 +429,4 @@ body:has(#woolf:target) .capa-habitacion {
 .btn-cerrar-cama:hover {
   background: #e5c158;
   color: #120e0a;
-}
-.zona-puerta {
-  top: 18%;
-  left: 63%;
-  width: 14%;
-  height: 65%;
-  cursor: pointer;
 }
