@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Fraunces', serif;
+  color: #fff8dc;
+  background-color: #0c0906;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Fondos para cada sección */
+.fondo-portada {
+  background-image: linear-gradient(rgba(12, 9, 6, 0.45), rgba(12, 9, 6, 0.65)), 
+                    url(imgs/paisaje.jpeg); /* Puedes usar una imagen de fondo o tu GIF */
+}
+
+.fondo-escritoras {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
+                    url(imgs/paisaje.jpeg);
+}
+
+.fondo-bitacora {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
+                    url(imgs/paisaje.jpeg);
+}
+
+/* Título de portada principal */
+h1.titulo-portada {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  position: absolute;
+  font-size: 90px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+h1.titulo-portada a {
+  color: #f1c40f;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(241, 196, 15, 0.2);
+  border: none !important;
+}
+
+/* Enlaces generales */
+a {
+  color: #f39c12;
+  text-decoration: none;
+  font-style: italic;
+  border-bottom: 1px dashed #f39c12;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Subtítulo o links inferiores en portada */
+.menu-portada {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 35px;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+/* Contenedor central de contenido */
+#contenido {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.caja-reflexion {
+  background: rgba(18, 14, 10, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 45px;
+  border-radius: 8px;
+  border: 1px solid rgba(241, 196, 15, 0.15);
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.caja-reflexion h2 {
+  font-size: 2.4rem;
+  color: #f1c40f;
+  margin-bottom: 25px;
+  font-weight: 900;
+}
+
+.texto-reflexion {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 22px;
+  text-align: justify;
+  color: #fff8dc;
+}
+
+.cita-destacada {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #f39c12;
+  border-left: 2px solid #f1c40f;
+  padding-left: 18px;
+  margin: 28px 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.navegacion-pie {
+  margin-top: 40px;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
