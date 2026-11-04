@@ -5,8 +5,8 @@ html, body {
   padding: 0;
   min-height: 100vh;
   font-family: 'Fraunces', serif;
-  color: #fff8dc;
-  background-color: #0c0906;
+  color: #1a1a1a;
+  background-color: #f4f6f0;
 }
 
 body {
@@ -16,31 +16,21 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Fondos para cada sección */
+/* 1. Fondo de la portada con la ilustración y transparencia suave */
 .fondo-portada {
-  background-image: linear-gradient(rgba(12, 9, 6, 0.45), rgba(12, 9, 6, 0.65)), 
-                    url(imgs/paisaje.jpeg); /* Puedes usar una imagen de fondo o tu GIF */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35)), 
+                    url('paísaje.jpeg'); /* Asegúrate de colocar el archivo exacto */
 }
 
-.fondo-escritoras {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
-                    url(imgs/paisaje.jpeg);
-}
-
-.fondo-bitacora {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
-                    url(imgs/paisaje.jpeg);
-}
-
-/* Título de portada principal */
+/* 2. Título "Habitar" en negro y peso fino (Thin/Light) */
 h1.titulo-portada {
   font-family: 'Fraunces', serif;
-  font-weight: 900;
+  font-weight: 300; /* Peso fino y liviano */
   font-style: italic;
   margin: 0;
   position: absolute;
-  font-size: 90px;
-  top: 45%;
+  font-size: 85px;
+  top: 30%; /* Elevado hacia el centro alto */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -48,39 +38,51 @@ h1.titulo-portada {
 }
 
 h1.titulo-portada a {
-  color: #f1c40f;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(241, 196, 15, 0.2);
+  color: #111111; /* Negro fino */
   border: none !important;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Enlaces generales */
-a {
-  color: #f39c12;
-  text-decoration: none;
-  font-style: italic;
-  border-bottom: 1px dashed #f39c12;
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Subtítulo o links inferiores en portada */
+/* 3. Menú vertical centrado sobre la franja del cielo azul */
 .menu-portada {
   position: absolute;
-  top: 62%;
+  top: 55%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -40%);
   display: flex;
-  gap: 35px;
-  font-size: 1.3rem;
+  flex-direction: column; /* Alineación vertical */
+  align-items: center;
+  gap: 24px; /* Espacio entre opciones */
   white-space: nowrap;
+  width: auto;
 }
 
-/* Contenedor central de contenido */
+/* 4. Enlaces en color verde, más grandes y subrayados solo en Hover */
+.menu-portada a {
+  font-family: 'Fraunces', serif;
+  font-size: 1.65rem; /* Tamaño más grande */
+  font-weight: 500;
+  font-style: italic;
+  color: #1b4d2e; /* Verde bosque cálido y profundo */
+  text-decoration: none; /* Sin subrayado por defecto */
+  border-bottom: 2px solid transparent; /* Reserva el espacio del borde */
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Efecto Hover: aparece el subrayado verde al pasar el cursor */
+.menu-portada a:hover {
+  color: #0b2e19;
+  border-bottom: 2px solid #1b4d2e;
+}
+
+
+/* Estilos para las páginas internas (escritoras.html y bitacora.html) */
+.fondo-escritoras, .fondo-bitacora {
+  background-image: linear-gradient(rgba(245, 247, 240, 0.7), rgba(245, 247, 240, 0.85)), 
+                    url('paísaje.jpeg');
+}
+
 #contenido {
   max-width: 720px;
   margin: 0 auto;
@@ -89,21 +91,21 @@ a:hover {
 }
 
 .caja-reflexion {
-  background: rgba(18, 14, 10, 0.75);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 45px;
-  border-radius: 8px;
-  border: 1px solid rgba(241, 196, 15, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(27, 77, 46, 0.2);
   margin-top: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .caja-reflexion h2 {
   font-size: 2.4rem;
-  color: #f1c40f;
+  color: #1b4d2e;
   margin-bottom: 25px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .texto-reflexion {
@@ -111,14 +113,14 @@ a:hover {
   line-height: 1.8;
   margin-bottom: 22px;
   text-align: justify;
-  color: #fff8dc;
+  color: #2c3531;
 }
 
 .cita-destacada {
   font-style: italic;
   font-size: 1.15rem;
-  color: #f39c12;
-  border-left: 2px solid #f1c40f;
+  color: #1b4d2e;
+  border-left: 3px solid #1b4d2e;
   padding-left: 18px;
   margin: 28px 0;
   text-align: left;
@@ -130,4 +132,15 @@ a:hover {
   font-size: 1.25rem;
   display: flex;
   justify-content: space-between;
+}
+
+.navegacion-pie a {
+  color: #1b4d2e;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.navegacion-pie a:hover {
+  border-bottom: 1px solid #1b4d2e;
 }
