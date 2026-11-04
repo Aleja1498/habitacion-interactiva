@@ -3,44 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Habitar</title>
+  <title>La Habitación - Habitar</title>
 
-  <!-- Tipografías seleccionadas desde Google Fonts -->
+  <!-- Tipografías desde Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
   <div class="escenario">
 
-    <!-- El gif -->
+    <!-- Capa 1: El GIF paisaje detrás de la ventana -->
     <div class="capa-paisaje">
       <img src="paisaje.gif" alt="Paisaje tras la ventana" class="gif-paisaje">
     </div>
 
-    <!-- La habitación -->
+    <!-- Capa 2: La habitación superpuesta -->
     <div class="capa-habitacion">
       <img src="habitacion.png" alt="Habitación" class="img-habitacion">
     </div>
 
-    <!-- Zonas interactivas -->
+    <!-- Capa 3: Zonas interactivas -->
     <div class="capa-interactiva">
       <a href="#woolf" class="zona zona-cama" title="Sobre estar enferma - Virginia Woolf"></a>
       <a href="#perkins" class="zona zona-pared" title="El papel pintado de amarillo - Charlotte Perkins"></a>
       <a href="#storni" class="zona zona-espejo" title="Tú me quieres blanca - Alfonsina Storni"></a>
+      
+      <!-- La Puerta: Salida poética a Bitácora -->
+      <a href="bitacora.html" class="zona zona-puerta" title="Salir de la habitación / Bitácora"></a>
     </div>
 
   </div>
 
 
-  <!-- Virginia Woolf, Sobre estar enferma (La Cama y el Suelo) -->
+  <!-- Virginia Woolf: Sobre estar enferma (La Cama y el Suelo) -->
   <section id="woolf" class="capa-texto-cama">
     <a href="#" class="btn-cerrar-cama" title="Clic para volver">&larr; Volver a la habitación</a>
     
-    <!-- Texto principal reposicionado sobre las cobijas -->
+    <!-- Texto principal sobre la cama -->
     <div class="texto-cama-principal">
       <h2>Sobre estar enferma</h2>
       <p class="autor">Virginia Woolf</p>
@@ -50,16 +53,16 @@
       </p>
     </div>
 
-    <!-- Contenedor de la lluvia de frases al suelo -->
+    <!-- Contenedor para la lluvia de frases pesadas -->
     <div class="lluvia-suelo" id="lluviaWoolf"></div>
   </section>
 
 
-  <!-- Charlotte Perkins Gilman (La Pared - Linterna Círculo) -->
+  <!-- Charlotte Perkins Gilman: El papel pintado de amarillo (La Pared) -->
   <section id="perkins" class="capa-texto-pared">
-    <a href="#" class="btn-cerrar-pared" title="Haz clic en cualquier parte para volver">&larr; Clic en cualquier parte para salir</a>
+    <a href="#" class="btn-cerrar-pared" title="Haz clic para salir">&larr; Clic para salir</a>
     
-    <!-- Halo circular de la linterna -->
+    <!-- Halo circular de linterna -->
     <div class="halo-linterna" id="linterna"></div>
 
     <div class="lienzo-pared">
@@ -106,7 +109,7 @@
   </section>
 
 
-  <!-- Alfonsina Storni (El Espejo) -->
+  <!-- Alfonsina Storni: Tú me quieres blanca (El Espejo) -->
   <section id="storni" class="capa-texto">
     <a href="#" class="btn-cerrar">&times; Volver a la habitación</a>
 
@@ -174,8 +177,6 @@
     </div>
   </section>
 
-  <script src="script.js"></script> 
+  <script src="script.js"></script>
 </body>
 </html>
-
-<a href="bitacora.html" class="zona zona-puerta" title="Salir de la habitación / Bitácora"></a>
