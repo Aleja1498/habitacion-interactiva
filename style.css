@@ -420,3 +420,10 @@ body:has(#woolf:target) .capa-habitacion {
   background: #e5c158;
   color: #120e0a;
 }
+.zona-puerta {
+  top: 18%;
+  left: 63%;
+  width: 14%;
+  height: 65%;
+  cursor: pointer;
+}
