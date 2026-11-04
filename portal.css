@@ -16,20 +16,18 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Fondo */
 .fondo-portada, .fondo-escritoras, .fondo-bitacora {
   background-image: linear-gradient(rgba(245, 247, 240, 0.35), rgba(245, 247, 240, 0.5)), 
                     url('paísaje.jpeg');
 }
 
-/* Portada principal */
 h1.titulo-portada {
   font-family: 'Fraunces', serif;
   font-weight: 300;
   font-style: italic;
   margin: 0;
   position: absolute;
-  font-size: 120px;
+  font-size: 140px;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -43,56 +41,63 @@ h1.titulo-portada a {
   text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
-/* CAJA Y CONTENEDOR AMPLIADOS */
+/* Caja de contenido */
 #contenido {
-  width: 90vw;
-  max-width: 1200px; /* Caja ancha */
+  width: 95vw;
+  max-width: 1400px; /* Ancho */
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 30px 10px;
   text-align: center;
 }
 
 .caja-reflexion {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 60px 80px; /* Espacio interior  */
-  border-radius: 16px;
-  border: 1px solid rgba(27, 77, 46, 0.2);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 65px 90px;
+  border-radius: 18px;
+  border: 1px solid rgba(27, 77, 46, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  margin-top: 10px;
 }
 
 .caja-reflexion h2 {
-  font-size: 3.6rem; /* Título */
+  font-size: 4rem; /* Título */
   color: #1b4d2e;
   margin-bottom: 35px;
   font-weight: 800;
 }
 
 .texto-reflexion {
-  font-size: 1.6rem; /* Letra grande */
+  font-size: 1.85rem; /* Letra grande */
   line-height: 1.85;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   text-align: justify;
   color: #111111;
 }
 
 .cita-destacada {
   font-style: italic;
-  font-size: 1.75rem; /* Cita resaltada y muy legible */
+  font-size: 2rem; /* Cita resaltada */
   font-weight: 600;
-  color: #0d381e;
-  border-left: 5px solid #1b4d2e;
-  padding-left: 28px;
-  margin: 40px 0;
+  color: #0b331b;
+  border-left: 6px solid #1b4d2e;
+  padding-left: 32px;
+  margin: 45px 0;
   text-align: left;
   line-height: 1.65;
 }
 
+/* Aclaración de autoras */
+.caja-reflexion p small, .caja-reflexion small {
+  font-size: 1.45rem !important;
+  line-height: 1.6;
+  color: #2c3531;
+}
+
 .navegacion-pie {
-  margin-top: 50px;
-  font-size: 1.6rem;
+  margin-top: 55px;
+  font-size: 1.8rem;
   display: flex;
   justify-content: space-between;
 }
@@ -101,10 +106,10 @@ h1.titulo-portada a {
   color: #1b4d2e;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
 }
 
 .navegacion-pie a:hover {
-  border-bottom: 2px solid #1b4d2e;
+  border-bottom: 3px solid #1b4d2e;
 }
