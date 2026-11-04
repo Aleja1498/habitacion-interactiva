@@ -27,7 +27,7 @@ h1.titulo-portada {
   font-style: italic;
   margin: 0;
   position: absolute;
-  font-size: 140px;
+  font-size: 130px;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -41,63 +41,69 @@ h1.titulo-portada a {
   text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
-/* Caja de contenido */
+/* CAJA AMPLIA Y LEGIBLE EN CUALQUIER PANTALLA */
 #contenido {
-  width: 95vw;
-  max-width: 1400px; /* Ancho */
+  width: 92vw;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 30px 10px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .caja-reflexion {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 65px 90px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 65px 85px;
   border-radius: 18px;
-  border: 1px solid rgba(27, 77, 46, 0.25);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-  margin-top: 10px;
+  border: 1px solid rgba(27, 77, 46, 0.2);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 .caja-reflexion h2 {
-  font-size: 4rem; /* Título */
+  font-size: 3.8rem;
   color: #1b4d2e;
   margin-bottom: 35px;
   font-weight: 800;
 }
 
 .texto-reflexion {
-  font-size: 1.85rem; /* Letra grande */
+  font-size: 1.75rem; /* Tamaño de letra principal claro y cómodo */
   line-height: 1.85;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
   text-align: justify;
   color: #111111;
 }
 
+/* FORZAMOS A QUE EL TEXTO PEQUEÑO/ACLARATORIO SEA GRANDE Y VISIBLE */
+.caja-reflexion small, 
+.caja-reflexion p small,
+.texto-aclaracion {
+  display: block;
+  font-size: 1.45rem !important; /* Tamaño aumentado considerablemente */
+  line-height: 1.7;
+  color: #2c3531;
+  font-style: italic;
+  margin: 25px 0;
+  text-align: justify;
+}
+
 .cita-destacada {
   font-style: italic;
-  font-size: 2rem; /* Cita resaltada */
+  font-size: 1.85rem;
   font-weight: 600;
-  color: #0b331b;
+  color: #0d381e;
   border-left: 6px solid #1b4d2e;
-  padding-left: 32px;
-  margin: 45px 0;
+  padding-left: 30px;
+  margin: 40px 0;
   text-align: left;
   line-height: 1.65;
 }
 
-/* Aclaración de autoras */
-.caja-reflexion p small, .caja-reflexion small {
-  font-size: 1.45rem !important;
-  line-height: 1.6;
-  color: #2c3531;
-}
-
 .navegacion-pie {
-  margin-top: 55px;
-  font-size: 1.8rem;
+  margin-top: 50px;
+  font-size: 1.7rem;
   display: flex;
   justify-content: space-between;
 }
