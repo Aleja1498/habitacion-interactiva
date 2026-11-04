@@ -18,7 +18,7 @@ body {
 
 /* Fondo */
 .fondo-portada, .fondo-escritoras, .fondo-bitacora {
-  background-image: linear-gradient(rgba(245, 247, 240, 0.4), rgba(245, 247, 240, 0.55)), 
+  background-image: linear-gradient(rgba(245, 247, 240, 0.35), rgba(245, 247, 240, 0.5)), 
                     url('paísaje.jpeg');
 }
 
@@ -29,7 +29,7 @@ h1.titulo-portada {
   font-style: italic;
   margin: 0;
   position: absolute;
-  font-size: 110px;
+  font-size: 120px;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,64 +40,66 @@ h1.titulo-portada {
 h1.titulo-portada a {
   color: #111111;
   border: none !important;
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
-/* CAJA PRINCIPAL */
+/* CAJA Y CONTENEDOR AMPLIADOS */
 #contenido {
-  max-width: 1000px; /* Ancho */
+  width: 90vw;
+  max-width: 1200px; /* Caja ancha */
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .caja-reflexion {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 60px 70px; /* Más espacio interno */
-  border-radius: 12px;
-  border: 1px solid rgba(27, 77, 46, 0.15);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 60px 80px; /* Espacio interior  */
+  border-radius: 16px;
+  border: 1px solid rgba(27, 77, 46, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 
 .caja-reflexion h2 {
-  font-size: 4rem; /* Título grande */
+  font-size: 3.6rem; /* Título */
   color: #1b4d2e;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   font-weight: 800;
 }
 
 .texto-reflexion {
-  font-size: 1.5rem; /* Tamaño de letra legible */
+  font-size: 1.6rem; /* Letra grande */
   line-height: 1.85;
-  margin-bottom: 26px;
+  margin-bottom: 30px;
   text-align: justify;
-  color: #222222;
+  color: #111111;
 }
 
 .cita-destacada {
   font-style: italic;
-  font-size: 1.5rem;
-  color: #1b4d2e;
-  border-left: 4px solid #1b4d2e;
-  padding-left: 22px;
-  margin: 32px 0;
+  font-size: 1.75rem; /* Cita resaltada y muy legible */
+  font-weight: 600;
+  color: #0d381e;
+  border-left: 5px solid #1b4d2e;
+  padding-left: 28px;
+  margin: 40px 0;
   text-align: left;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .navegacion-pie {
-  margin-top: 45px;
-  font-size: 1.4rem;
+  margin-top: 50px;
+  font-size: 1.6rem;
   display: flex;
   justify-content: space-between;
 }
 
 .navegacion-pie a {
   color: #1b4d2e;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: all 0.3s ease;
