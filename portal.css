@@ -16,21 +16,20 @@ body {
   background-repeat: no-repeat;
 }
 
-/* 1. Fondo de la portada con la ilustración y transparencia suave */
+/* 1. Fondo de pág principañ */
 .fondo-portada {
   background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35)), 
-                    url('paísaje.jpeg'); /* Asegúrate de colocar el archivo exacto */
-}
+                    url('paísaje.jpeg');
 
-/* 2. Título "Habitar" en negro y peso fino (Thin/Light) */
+/* 2. Título "Habitar" */
 h1.titulo-portada {
   font-family: 'Fraunces', serif;
-  font-weight: 300; /* Peso fino y liviano */
+  font-weight: 350; /* Peso */
   font-style: italic;
   margin: 0;
   position: absolute;
   font-size: 85px;
-  top: 30%; /* Elevado hacia el centro alto */
+  top: 30%; 
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -38,12 +37,12 @@ h1.titulo-portada {
 }
 
 h1.titulo-portada a {
-  color: #111111; /* Negro fino */
+  color: #111111; 
   border: none !important;
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
-/* 3. Menú vertical centrado sobre la franja del cielo azul */
+/* 3. Menú vertical 
 .menu-portada {
   position: absolute;
   top: 55%;
@@ -57,20 +56,20 @@ h1.titulo-portada a {
   width: auto;
 }
 
-/* 4. Enlaces en color verde, más grandes y subrayados solo en Hover */
+/* 4. Enlaces en color verde */
 .menu-portada a {
   font-family: 'Fraunces', serif;
-  font-size: 1.65rem; /* Tamaño más grande */
+  font-size: 1.65rem;
   font-weight: 500;
   font-style: italic;
-  color: #1b4d2e; /* Verde bosque cálido y profundo */
-  text-decoration: none; /* Sin subrayado por defecto */
-  border-bottom: 2px solid transparent; /* Reserva el espacio del borde */
+  color: #1b4d2e; 
+  text-decoration: none; 
+  border-bottom: 2px solid transparent;
   transition: all 0.3s ease;
   text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
 }
 
-/* Efecto Hover: aparece el subrayado verde al pasar el cursor */
+/* Efecto Hover */
 .menu-portada a:hover {
   color: #0b2e19;
   border-bottom: 2px solid #1b4d2e;
@@ -84,7 +83,7 @@ h1.titulo-portada a {
 }
 
 #contenido {
-  max-width: 720px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 80px 20px;
   text-align: center;
@@ -102,14 +101,14 @@ h1.titulo-portada a {
 }
 
 .caja-reflexion h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   color: #1b4d2e;
   margin-bottom: 25px;
   font-weight: 700;
 }
 
 .texto-reflexion {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   line-height: 1.8;
   margin-bottom: 22px;
   text-align: justify;
@@ -118,7 +117,7 @@ h1.titulo-portada a {
 
 .cita-destacada {
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: #1b4d2e;
   border-left: 3px solid #1b4d2e;
   padding-left: 18px;
@@ -129,7 +128,7 @@ h1.titulo-portada a {
 
 .navegacion-pie {
   margin-top: 40px;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   display: flex;
   justify-content: space-between;
 }
