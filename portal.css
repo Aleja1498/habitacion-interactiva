@@ -17,7 +17,7 @@ body {
 }
 
 .fondo-portada, .fondo-escritoras, .fondo-bitacora {
-  background-image: linear-gradient(rgba(245, 247, 240, 0.35), rgba(245, 247, 240, 0.5)), 
+  background-image: linear-gradient(rgba(245, 247, 240, 0.3), rgba(245, 247, 240, 0.45)), 
                     url('paísaje.jpeg');
 }
 
@@ -27,7 +27,7 @@ h1.titulo-portada {
   font-style: italic;
   margin: 0;
   position: absolute;
-  font-size: 130px;
+  font-size: 140px;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -41,24 +41,23 @@ h1.titulo-portada a {
   text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
-/* CAJA AMPLIA Y LEGIBLE EN CUALQUIER PANTALLA */
+/* CONTENEDOR ANCHO GIGANTE QUE RESPIRA */
 #contenido {
-  width: 92vw;
-  max-width: 1300px;
+  width: 95vw !important;
+  max-width: 1500px !important;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 10px;
   text-align: center;
 }
 
 .caja-reflexion {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 65px 85px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 60px 80px;
   border-radius: 18px;
   border: 1px solid rgba(27, 77, 46, 0.2);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .caja-reflexion h2 {
@@ -68,44 +67,39 @@ h1.titulo-portada a {
   font-weight: 800;
 }
 
-.texto-reflexion {
-  font-size: 1.75rem; /* Tamaño de letra principal claro y cómodo */
-  line-height: 1.85;
-  margin-bottom: 30px;
+/* TEXTO DE LA CAJA */
+.texto-reflexion, 
+.texto-destacado-autoras,
+.caja-reflexion p {
+  font-size: 2.1rem !important; /* Tamaño */
+  line-height: 1.85 !important;
+  margin-bottom: 32px;
   text-align: justify;
-  color: #111111;
+  color: #111111 !important;
 }
 
-/* FORZAMOS A QUE EL TEXTO PEQUEÑO/ACLARATORIO SEA GRANDE Y VISIBLE */
-.caja-reflexion small, 
-.caja-reflexion p small,
-.texto-aclaracion {
-  display: block;
-  font-size: 1.45rem !important; /* Tamaño aumentado considerablemente */
-  line-height: 1.7;
-  color: #2c3531;
+.texto-destacado-autoras {
   font-style: italic;
-  margin: 25px 0;
-  text-align: justify;
+  color: #1b4d2e !important;
 }
 
 .cita-destacada {
   font-style: italic;
-  font-size: 1.85rem;
+  font-size: 2.3rem !important;
   font-weight: 600;
-  color: #0d381e;
+  color: #0b331b;
   border-left: 6px solid #1b4d2e;
-  padding-left: 30px;
-  margin: 40px 0;
+  padding-left: 32px;
+  margin: 45px 0;
   text-align: left;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .navegacion-pie {
   margin-top: 50px;
-  font-size: 1.7rem;
+  font-size: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .navegacion-pie a {
