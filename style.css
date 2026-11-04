@@ -97,7 +97,7 @@ body, html {
   cursor: pointer;
 }
 
-/* Capas de texto estándar (Storni - Espejo) */
+/* Capas de texto estándar (Storni) */
 .capa-texto {
   display: none;
   position: fixed;
@@ -135,14 +135,14 @@ body, html {
 }
 
 .contenido-modal {
-  max-width: 700px;
+  max-width: 750px;
   margin: 40px auto;
   font-family: 'Libre Baskerville', Georgia, serif;
   line-height: 1.8;
 }
 
 .contenido-modal h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: #e5c158;
   margin-bottom: 5px;
 }
@@ -201,7 +201,7 @@ body:has(#perkins:target) .capa-habitacion {
   position: absolute;
   top: 4vh;
   left: 3vw;
-  width: 32vw;
+  width: 35vw;
   height: 92vh;
   overflow-y: auto;
   padding-right: 25px;
@@ -217,7 +217,7 @@ body:has(#perkins:target) .capa-habitacion {
   font-family: 'Fraunces', serif !important;
   font-weight: 900;
   color: #f1c40f;
-  font-size: 2.8rem;
+  font-size: 3rem;
   margin-bottom: 2px;
 }
 
@@ -225,14 +225,14 @@ body:has(#perkins:target) .capa-habitacion {
   font-family: 'Fraunces', serif !important;
   font-style: italic;
   color: #a89f91;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 35px;
 }
 
 .cuerpo-pared p {
   margin-bottom: 26px;
   font-family: 'Fraunces', serif !important;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 500;
   color: #fff8dc;
   line-height: 1.7;
@@ -240,7 +240,7 @@ body:has(#perkins:target) .capa-habitacion {
 
 .cuerpo-pared span.destacado {
   font-family: 'Fraunces', serif !important;
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 900;
   color: #f39c12;
 }
@@ -270,7 +270,7 @@ body:has(#perkins:target) .halo-linterna {
   right: 30px;
   color: #e5c158;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-family: 'Fraunces', serif !important;
   background: rgba(18, 14, 10, 0.85);
   padding: 10px 18px;
@@ -311,40 +311,42 @@ body:has(#woolf:target) .capa-habitacion {
   display: block;
 }
 
-/* CITA PRINCIPAL: Ampliada para lectura clara */
+/* CITA SOBRE LA CAMA: Inclinada a favor de las manecillas del reloj (6deg) */
 .texto-cama-principal {
   position: absolute;
-  bottom: 20vh;
-  right: 4vw;
-  width: 36vw;
+  bottom: 18vh;
+  right: 3vw;
+  width: 38vw;
   font-family: 'Libre Baskerville', serif;
   color: #fceabb;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   z-index: 40;
-  transform: rotate(-10deg);
+
+  /* ROTACIÓN A FAVOR DE LAS MANECILLAS DEL RELOJ */
+  transform: rotate(6deg);
   transform-origin: bottom right;
 }
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 4rem;
+  font-size: 3.4rem; /* Título gigante */
   font-weight: 900;
   color: #f1c40f;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .texto-cama-principal .autor {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #cbb47e;
-  font-size: 1.8rem;
-  margin-bottom: 16px;
+  font-size: 1.45rem;
+  margin-bottom: 18px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.60rem;
-  line-height: 1.80;
+  font-size: 1.75rem; /* Texto muy claro y amplio */
+  line-height: 1.65;
 }
 
 .texto-cama-principal .cita-cama span {
@@ -364,41 +366,41 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
-/* FRASES PESADAS EN EL SUELO */
+/* FRASES LLUEVEN AL SUELO EN TAMAÑO EXTRA GRANDE */
 .frase-caida {
   position: absolute;
   font-family: 'Fraunces', serif !important;
-  font-size: 36px;
-  font-weight: 1000;
+  font-size: 44px; /* Tamaño base incrementado */
+  font-weight: 900;
   color: #d4ac0d;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
-  text-shadow: 2px 2px 8px #000000, 0 0 15px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 10px #000000, 0 0 20px rgba(0,0,0,0.9);
   animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .frase-caida.pesada {
-  font-size: 44px;
+  font-size: 54px;
   color: #f39c12;
 }
 
 .frase-caida.gigante {
-  font-size: 55px;
+  font-size: 64px;
   color: #f1c40f;
 }
 
 .frase-caida:hover {
   color: #ffffff !important;
-  transform: scale(1.25) !important;
-  text-shadow: 0 0 20px #f1c40f, 2px 2px 10px #000000;
+  transform: scale(1.15) !important;
+  text-shadow: 0 0 25px #f1c40f, 2px 2px 12px #000000;
   z-index: 45;
 }
 
 @keyframes caerAlSuelo {
   0% {
-    top: 35vh;
+    top: 30vh;
     opacity: 0;
   }
   50% {
@@ -412,11 +414,11 @@ body:has(#woolf:target) .capa-habitacion {
 
 .btn-cerrar-cama {
   position: fixed;
-  top: 30px;
-  right:40px;
+  top: 25px;
+  right: 30px;
   color: #e5c158;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: 'Fraunces', serif;
   background: rgba(18, 14, 10, 0.85);
   padding: 10px 18px;
