@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: El GIF paisaje detrás */
+/* Capa 1: GIF Paisaje */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ body, html {
   object-fit: cover;
 }
 
-/* Capa 2: La habitación superpuesta */
+/* Capa 2: Habitación */
 .capa-habitacion {
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@ body, html {
   object-fit: fill;
 }
 
-/* Capa 3: Zonas interactivas */
+/* Capa 3: Zonas interactivas delimitadas exactamente */
 .capa-interactiva {
   position: absolute;
   top: 0;
@@ -68,13 +68,15 @@ body, html {
   cursor: pointer;
 }
 
+/* Ajuste fino de la Cama */
 .zona-cama {
   bottom: 0%;
   right: 0%;
-  width: 38%;
-  height: 45%;
+  width: 48%;
+  height: 38%;
 }
 
+/* Ajuste fino de la Pared */
 .zona-pared {
   top: 0%;
   left: 0%;
@@ -82,22 +84,28 @@ body, html {
   height: 100%;
 }
 
+/* Ajuste fino del Espejo */
 .zona-espejo {
-  top: 22%;
-  right: 0%;
-  width: 12%;
-  height: 45%;
+  top: 15%;
+  right: 2%;
+  width: 15%;
+  height: 40%;
 }
 
+/* Ajuste fino de la Puerta (No choca con la cama) */
 .zona-puerta {
-  top: 18%;
-  left: 63%;
-  width: 14%;
-  height: 65%;
+  top: 5%;
+  left: 35%;
+  width: 18%;
+  height: 52%;
   cursor: pointer;
 }
 
-/* EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN) */
+
+/* ========================================================
+   EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN - PARED)
+   ======================================================== */
+
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
 }
@@ -119,9 +127,7 @@ body:has(#perkins:target) .capa-habitacion {
   -webkit-mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
 }
 
-.capa-texto-pared:target {
-  display: block;
-}
+.capa-texto-pared:target { display: block; }
 
 .lienzo-pared {
   position: absolute;
@@ -201,7 +207,11 @@ body:has(#perkins:target) .halo-linterna { display: block; }
   border: 1px solid rgba(229, 193, 88, 0.3);
 }
 
-/* CAMA WOOLF */
+
+/* ========================================================
+   LA CAMA Y LA LLUVIA EN EL SUELO (VIRGINIA WOOLF)
+   ======================================================== */
+
 body:has(#woolf:target) .capa-habitacion {
   filter: brightness(0.3) contrast(1.15);
 }
@@ -221,46 +231,49 @@ body:has(#woolf:target) .capa-habitacion {
 
 .capa-texto-cama:target { display: block; }
 
+/* CITA SOBRE LA CAMA CON FONDO DIFUMINADO SUTIL PARA LEER PERFECTO */
 .texto-cama-principal {
   position: absolute;
-  bottom: 14vh;
-  right: 8vw;
-  width: 36vw;
+  bottom: 15vh;
+  right: 4vw;
+  width: 38vw;
+  padding: 25px 35px;
+  background: rgba(12, 9, 6, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(241, 196, 15, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   font-family: 'Libre Baskerville', serif;
   color: #fceabb;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.98);
   pointer-events: none;
   z-index: 40;
-  transform: rotate(12deg);
+
+  /* Inclinación sutil alineada con las cobijas */
+  transform: rotate(-10deg);
   transform-origin: center center;
 }
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 900;
   color: #f1c40f;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .texto-cama-principal .autor {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   color: #cbb47e;
-  font-size: 1.45rem;
-  margin-bottom: 18px;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
 }
 
 .texto-cama-principal .cita-cama {
-  font-size: 1.75rem;
-  line-height: 1.6;
-}
-
-.texto-cama-principal .cita-cama span {
+  font-size: 1.65rem;
+  line-height: 1.65;
   color: #ffffff;
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: #f1c40f;
 }
 
 .lluvia-suelo {
@@ -273,34 +286,45 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
+/* FRASES PESADAS EN EL SUELO - LENTAS Y ESPACIADAS */
 .frase-caida {
   position: absolute;
   font-family: 'Fraunces', serif !important;
-  font-size: 44px;
-  font-weight: 900;
+  font-size: 34px;
+  font-weight: 800;
   color: #d4ac0d;
   opacity: 0;
   pointer-events: auto;
   white-space: nowrap;
-  text-shadow: 3px 3px 12px #000000, 0 0 22px rgba(0,0,0,0.9);
-  animation: caerAlSuelo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  text-shadow: 2px 2px 10px #000000, 0 0 18px rgba(0,0,0,0.9);
+  
+  /* Animación más lenta (2.8 segundos) */
+  animation: caerAlSuelo 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.frase-caida.pesada { font-size: 54px; color: #f39c12; }
-.frase-caida.gigante { font-size: 64px; color: #f1c40f; }
+.frase-caida.pesada { font-size: 42px; color: #f39c12; }
+.frase-caida.gigante { font-size: 48px; color: #f1c40f; }
 
 .frase-caida:hover {
   color: #ffffff !important;
-  transform: scale(1.15) !important;
+  transform: scale(1.1) !important;
   text-shadow: 0 0 25px #f1c40f, 2px 2px 12px #000000;
   z-index: 45;
 }
 
 @keyframes caerAlSuelo {
-  0% { top: 25vh; opacity: 0; }
-  50% { opacity: 0.95; }
-  100% { top: var(--destino-y); opacity: 0.88; }
+  0% {
+    top: 15vh;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.95;
+  }
+  100% {
+    top: var(--destino-y);
+    opacity: 0.88;
+  }
 }
 
 .btn-cerrar-cama {
@@ -318,7 +342,11 @@ body:has(#woolf:target) .capa-habitacion {
   border: 1px solid rgba(229, 193, 88, 0.3);
 }
 
-/* ESPEJO STORNI */
+
+/* ========================================================
+   EL ESPEJO Y EL AGUA DE STORNI (ALFONSINA STORNI)
+   ======================================================== */
+
 body:has(#storni:target) .capa-habitacion {
   filter: grayscale(80%) brightness(0.4) blur(3px);
 }
