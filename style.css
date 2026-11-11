@@ -245,11 +245,11 @@ body:has(#woolf:target) .capa-habitacion {
 
 .texto-cama-principal {
   position: absolute;
-  bottom: 26vh;
-  right: 3vw;
-  width: 36vw;
-  padding: 25px 35px;
-  background: rgba(12, 9, 6, 0.78);
+  bottom: 12vh; /* La baja directamente sobre el colchón */
+  right: 12vw;  /* La corre hacia la izquierda/atrás, más cerca del cabezal */
+  width: 34vw;
+  padding: 22px 30px;
+  background: rgba(12, 9, 6, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: none !important;
@@ -260,10 +260,11 @@ body:has(#woolf:target) .capa-habitacion {
   pointer-events: none;
   z-index: 40;
 
-  /* Inclinación exacta siguiendo la diagonal de la cama */
-  transform: rotate(22deg);
-  transform-origin: bottom right;
+  /* Inclinación natural amoldada a la perspectiva de la cama */
+  transform: rotate(12deg);
+  transform-origin: center center;
 }
+
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
