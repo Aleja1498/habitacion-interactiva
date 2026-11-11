@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20.0">
+  <link rel="stylesheet" href="style.css?v=30.0">
 </head>
 <body>
 
@@ -26,11 +26,12 @@
       <img src="habitacion.png" alt="Habitación" class="img-habitacion">
     </div>
 
-    <!-- Capa 3: Zonas interactivas delimitadas -->
+    <!-- Capa 3: Zonas interactivas -->
     <div class="capa-interactiva">
       <a href="#woolf" class="zona zona-cama" title="Sobre estar enferma - Virginia Woolf"></a>
       <a href="#perkins" class="zona zona-pared" title="El papel pintado de amarillo - Charlotte Perkins"></a>
       <a href="#storni" class="zona zona-espejo" title="Tú me quieres blanca - Alfonsina Storni"></a>
+      <a href="#ventana" class="zona zona-ventana" title="El Afuera / La Libertad"></a>
       
       <!-- La Puerta: Salida poética a Bitácora -->
       <a href="bitacora.html" class="zona zona-puerta" title="Salir de la habitación / Bitácora"></a>
@@ -41,10 +42,8 @@
 
   <!-- Virginia Woolf: Sobre estar enferma (La Cama y el Suelo) -->
   <section id="woolf" class="capa-texto-cama">
-    <!-- Clic en cualquier parte para volver -->
     <a href="#" class="enlace-fondo-cerrar" title="Clic para volver a la habitación"></a>
     
-    <!-- Texto principal sobre la cama -->
     <div class="texto-cama-principal">
       <h2>Sobre estar enferma</h2>
       <p class="autor">Virginia Woolf</p>
@@ -53,17 +52,14 @@
       </p>
     </div>
 
-    <!-- Contenedor para la lluvia de frases pesadas -->
     <div class="lluvia-suelo" id="lluviaWoolf"></div>
   </section>
 
 
   <!-- Charlotte Perkins Gilman: El papel pintado de amarillo (La Pared) -->
   <section id="perkins" class="capa-texto-pared">
-    <!-- Clic para salir o presionar ESC -->
     <a href="#" class="btn-cerrar-pared" title="Haz clic para salir">&larr; Clic para salir</a>
     
-    <!-- Halo circular de linterna -->
     <div class="halo-linterna" id="linterna"></div>
 
     <div class="lienzo-pared">
@@ -110,21 +106,48 @@
   </section>
 
 
-  <!-- Alfonsina Storni: Tú me quieres blanca (El Espejo Inmersivo) -->
- <!-- Alfonsina Storni: Tú me quieres blanca (Secuencia en el Cristal) -->
+  <!-- Alfonsina Storni: Tú me quieres blanca (Secuencia en el Cristal) -->
   <section id="storni" class="capa-texto-espejo">
     <a href="#" class="enlace-fondo-cerrar" title="Clic para volver a la habitación"></a>
 
     <div class="lluvia-espejo" id="gotasEspejo"></div>
 
-    <!-- Cristal encajado exactamente en el marco de madera -->
     <div class="cristal-espejo-dramatico">
       <h2 class="titulo-espejo">Tú me quieres blanca</h2>
       <p class="autor-espejo">Alfonsina Storni</p>
 
-      <!-- Contenedor donde JS irá mostrando frase por frase -->
       <div class="escenario-frase-espejo" id="contenedorFraseStorni">
         <p class="frase-secuencia-storni" id="textoEspejoAnimado"></p>
       </div>
     </div>
   </section>
+
+
+  <!-- El Afuera / La Naturaleza (La Ventana) -->
+  <section id="ventana" class="capa-texto-ventana">
+    <a href="#" class="enlace-fondo-cerrar" title="Clic en cualquier parte para volver"></a>
+
+    <div class="tarjeta-afuera">
+      <h2>El Afuera</h2>
+      <p class="subtitulo-afuera">La grieta de la libertad</p>
+
+      <blockquote class="manifesto-naturaleza">
+        "Quería una habitación que diera a la plaza y tuviera rosas en la ventana..."<br>
+        <span class="autor-cita">— Charlotte Perkins Gilman</span>
+      </blockquote>
+
+      <blockquote class="manifesto-naturaleza">
+        "Nos convertimos en desertores... flotamos con ramas en el arroyo, entre los gigantescos robles que crecen en la penumbra del alma."<br>
+        <span class="autor-cita">— Virginia Woolf</span>
+      </blockquote>
+
+      <blockquote class="manifesto-naturaleza">
+        "Huye hacia los bosques, vete a la montaña... renueva tejidos con salitre y agua, habla con los pájaros y límpiate al alba."<br>
+        <span class="autor-cita">— Alfonsina Storni</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <script src="script.js?v=30.0"></script>
+</body>
+</html>
