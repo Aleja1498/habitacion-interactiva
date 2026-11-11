@@ -63,7 +63,7 @@ const frasesStorni = [
   "corola cerrada",
   "tú me quieres nívea",
   "tú me quieres blanca...",
-  "habla con los pájaros y límpiate al alba." // Frase final de resistencia
+  "habla con los pájaros y límpiate al alba."
 ];
 
 const elTextoAnimado = document.getElementById('textoEspejoAnimado');
@@ -73,12 +73,10 @@ let temporizadorSecuencia = null;
 function iniciarSecuenciaEspejo() {
   if (!elTextoAnimado) return;
 
-  // Limpiar secuencias previas
   if (temporizadorSecuencia) clearTimeout(temporizadorSecuencia);
   elTextoAnimado.innerText = '';
   elTextoAnimado.className = 'frase-secuencia-storni';
 
-  // Lluvia de gotas
   crearGotasDramaticas();
 
   let indice = 0;
@@ -88,17 +86,15 @@ function iniciarSecuenciaEspejo() {
       const fraseActual = frasesStorni[indice];
       elTextoAnimado.innerText = fraseActual;
 
-      // Si es la última frase (resistencia), se queda dorada e iluminada
       if (indice === frasesStorni.length - 1) {
         elTextoAnimado.className = 'frase-secuencia-storni resistencia-final';
       } else {
-        // Reiniciar la animación de distorsión con agua
         elTextoAnimado.className = 'frase-secuencia-storni';
-        void elTextoAnimado.offsetWidth; // Force reflow
+        void elTextoAnimado.offsetWidth;
         elTextoAnimado.className = 'frase-secuencia-storni animar-entrada';
 
         indice++;
-        temporizadorSecuencia = setTimeout(mostrarSiguienteFrase, 3300); // Cambia cada 3.3 seg
+        temporizadorSecuencia = setTimeout(mostrarSiguienteFrase, 3300);
       }
     }
   }
@@ -120,17 +116,6 @@ function crearGotasDramaticas() {
   }
 }
 
-// Escuchar cambios de hash
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#storni') {
-    iniciarSecuenciaEspejo();
-  }
-});
-
-if (window.location.hash === '#storni') {
-  iniciarSecuenciaEspejo();
-}
-
 // ========================================================
 // 4. CONTROL DE EVENTOS HASH & ESCAPE (ESC)
 // ========================================================
@@ -139,7 +124,7 @@ function ejecutarEfectosSegunHash() {
     generarFrasesSuelo();
   }
   if (window.location.hash === '#storni') {
-    crearGotasDramaticas();
+    iniciarSecuenciaEspejo();
   }
 }
 
