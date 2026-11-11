@@ -243,17 +243,16 @@ body:has(#woolf:target) .capa-habitacion {
   cursor: pointer;
 }
 
-/* TARJETA SOBRE LA CAMA (SIN BORDE AMARILLO, INCLINADA A LA DERECHA) */
 .texto-cama-principal {
   position: absolute;
-  bottom: 22vh;
-  right: 5vw;
+  bottom: 26vh;
+  right: 3vw;
   width: 36vw;
   padding: 25px 35px;
   background: rgba(12, 9, 6, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: none !important; /* Sin reborde */
+  border: none !important;
   border-radius: 14px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
   font-family: 'Libre Baskerville', serif;
@@ -261,9 +260,9 @@ body:has(#woolf:target) .capa-habitacion {
   pointer-events: none;
   z-index: 40;
 
-  /* Inclinada hacia arriba y a la derecha sobre el colchón */
-  transform: rotate(14deg);
-  transform-origin: center center;
+  /* Inclinación exacta siguiendo la diagonal de la cama */
+  transform: rotate(22deg);
+  transform-origin: bottom right;
 }
 
 .texto-cama-principal h2 {
