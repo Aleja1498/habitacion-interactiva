@@ -355,26 +355,26 @@ body:has(#storni:target) .capa-habitacion {
 
 .capa-texto-espejo:target { display: block; }
 
-/* RECTÁNGULO ALINEADO EXACTAMENTE AL VIDRIO DEL ESPEJO DE LA DERECHA */
+/* RECTÁNGULO ENCAJADO AL MILÍMETRO DENTRO DEL CRISTAL */
 .cristal-espejo-dramatico {
   position: absolute;
-  top: 19.5vh;        /* Bajado para encajar bajo la madera superior */
-  right: 1.2vw;       /* Alineado al borde interno derecho */
-  width: 11.2vw;      /* Ancho exacto del vidrio */
-  height: 41.5vh;     /* Altura contenida dentro del marco */
-  padding: 15px 10px;
-  background: rgba(15, 20, 25, 0.45);
+  top: 23.5vh;        /* Bautismo de posición: baja el cristal dentro del marco */
+  right: 1.8vw;       /* Corre el borde derecho dentro del marco */
+  width: 9.8vw;       /* Más estrecho para no tocar el borde izquierdo */
+  height: 37.5vh;     /* Contenido dentro del vidrio sin desbordar */
+  padding: 12px 6px;
+  background: rgba(15, 20, 25, 0.5);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.95);
   font-family: 'Fraunces', serif;
   color: #ffffff;
   z-index: 35;
   pointer-events: none;
   overflow: hidden;
   
-  /* Inclinación exacta que acompaña la perspectiva del dibujo */
+  /* Inclinación amoldada a la perspectiva del dibujo */
   transform: rotate(-3.5deg);
   transform-origin: top right;
   
@@ -390,17 +390,17 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 .titulo-espejo {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #f1c40f;
   margin-bottom: 2px;
   font-weight: 800;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.98);
 }
 
 .autor-espejo {
   font-style: italic;
   color: #e0e0e0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .escenario-frase-espejo {
@@ -410,53 +410,50 @@ body:has(#storni:target) .capa-habitacion {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
-/* TIPOGRAFÍA AMPLIADA, CLARA Y SIN DESENFOQUE EXCESIVO */
+/* TIPOGRAFÍA GIGANTE Y NÍTIDA */
 .frase-secuencia-storni {
-  font-size: 1.45rem !important; /* Más grande para lectura clara */
-  line-height: 1.4;
-  font-weight: 800 !important;   /* Letra marcada */
+  font-size: 2rem !important;    /* Letra grande y destacada */
+  line-height: 1.35;
+  font-weight: 900 !important;   /* Máxima legibilidad */
   color: #ffffff !important;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 0 8px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 10px rgba(255, 255, 255, 0.8);
   opacity: 0;
+  filter: none !important;       /* Cero desenfoque */
 }
 
 .frase-secuencia-storni.animar-entrada {
-  animation: secuenciaClara 3.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: secuenciaNítida 3.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .frase-secuencia-storni.resistencia-final {
   color: #f1c40f !important;
-  font-size: 1.55rem !important;
+  font-size: 2.1rem !important;
   font-weight: 900 !important;
   font-style: italic;
-  text-shadow: 0 0 16px #f1c40f, 0 3px 12px rgba(0,0,0,0.98);
+  text-shadow: 0 0 18px #f1c40f, 0 3px 14px rgba(0,0,0,0.98);
   animation: resistenciaFija 3s ease forwards;
 }
 
-@keyframes secuenciaClara {
+@keyframes secuenciaNítida {
   0% {
     opacity: 0;
-    transform: translateY(-8px);
-    filter: blur(2px);
+    transform: translateY(-10px);
   }
   20% {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0px); /* Nítido para leer perfectamente */
   }
-  75% {
+  80% {
     opacity: 1;
     transform: translateY(2px);
-    filter: blur(0px);
     color: #ffffff;
   }
   100% {
     opacity: 0;
-    transform: translateY(14px);
-    filter: blur(4px); /* Transición suave de salida */
+    transform: translateY(16px);
     color: #aed6f1;
   }
 }
@@ -466,13 +463,13 @@ body:has(#storni:target) .capa-habitacion {
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* GOTAS DENTRO DEL ESPEJO */
+/* GOTAS DENTRO DEL ESPEJO RECALIBRADO */
 .lluvia-espejo {
   position: absolute;
-  top: 19.5vh;
-  right: 1.2vw;
-  width: 11.2vw;
-  height: 41.5vh;
+  top: 23.5vh;
+  right: 1.8vw;
+  width: 9.8vw;
+  height: 37.5vh;
   pointer-events: none;
   z-index: 38;
   overflow: hidden;
@@ -493,7 +490,7 @@ body:has(#storni:target) .capa-habitacion {
 @keyframes caerGotaDramatica {
   0% { transform: translateY(-40px); opacity: 0; }
   30% { opacity: 0.95; }
-  100% { transform: translateY(42vh); opacity: 0; }
+  100% { transform: translateY(38vh); opacity: 0; }
 }
 
 
