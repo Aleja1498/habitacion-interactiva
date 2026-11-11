@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=12.0">
+  <link rel="stylesheet" href="style.css?v=20.0">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
       <img src="habitacion.png" alt="Habitación" class="img-habitacion">
     </div>
 
-    <!-- Capa 3: Zonas interactivas -->
+    <!-- Capa 3: Zonas interactivas delimitadas -->
     <div class="capa-interactiva">
       <a href="#woolf" class="zona zona-cama" title="Sobre estar enferma - Virginia Woolf"></a>
       <a href="#perkins" class="zona zona-pared" title="El papel pintado de amarillo - Charlotte Perkins"></a>
@@ -39,12 +39,12 @@
   </div>
 
 
-<!-- Virginia Woolf: Sobre estar enferma (La Cama y el Suelo) -->
+  <!-- Virginia Woolf: Sobre estar enferma (La Cama y el Suelo) -->
   <section id="woolf" class="capa-texto-cama">
-    <!-- Clic en cualquier rincón transparente para volver -->
-    <a href="#" class="enlace-fondo-cerrar" title="Clic en cualquier parte para volver"></a>
-
-    <!-- Tarjeta sutil sobre la cama -->
+    <!-- Clic en cualquier parte para volver -->
+    <a href="#" class="enlace-fondo-cerrar" title="Clic para volver a la habitación"></a>
+    
+    <!-- Texto principal sobre la cama -->
     <div class="texto-cama-principal">
       <h2>Sobre estar enferma</h2>
       <p class="autor">Virginia Woolf</p>
@@ -53,13 +53,14 @@
       </p>
     </div>
 
-    <!-- Lluvia de frases pesadas distribuida -->
+    <!-- Contenedor para la lluvia de frases pesadas -->
     <div class="lluvia-suelo" id="lluviaWoolf"></div>
   </section>
 
 
   <!-- Charlotte Perkins Gilman: El papel pintado de amarillo (La Pared) -->
   <section id="perkins" class="capa-texto-pared">
+    <!-- Clic para salir o presionar ESC -->
     <a href="#" class="btn-cerrar-pared" title="Haz clic para salir">&larr; Clic para salir</a>
     
     <!-- Halo circular de linterna -->
@@ -108,15 +109,16 @@
     </div>
   </section>
 
+
   <!-- Alfonsina Storni: Tú me quieres blanca (El Espejo Inmersivo) -->
   <section id="storni" class="capa-texto-espejo">
-    <!-- Clic en cualquier rincón transparente de la pantalla para volver -->
+    <!-- Clic en el fondo para volver -->
     <a href="#" class="enlace-fondo-cerrar" title="Clic para volver a la habitación"></a>
 
-    <!-- Gotas de agua pesadas resbalando dentro del espejo -->
+    <!-- Gotas pesadas dentro del espejo -->
     <div class="lluvia-espejo" id="gotasEspejo"></div>
 
-    <!-- Cristal del espejo pegado a la pared -->
+    <!-- Cristal del espejo -->
     <div class="cristal-espejo-dramatico">
       <h2 class="titulo-espejo">Tú me quieres blanca</h2>
       <p class="autor-espejo">Alfonsina Storni</p>
@@ -141,3 +143,7 @@
       </div>
     </div>
   </section>
+
+  <script src="script.js?v=20.0"></script>
+</body>
+</html>
