@@ -41,7 +41,7 @@ h1.titulo-portada a {
   text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
-/* CONTENEDOR ANCHO GIGANTE QUE RESPIRA */
+/* CONTENEDOR ANCHO GIGANTE */
 #contenido {
   width: 95vw !important;
   max-width: 1500px !important;
@@ -67,11 +67,11 @@ h1.titulo-portada a {
   font-weight: 800;
 }
 
-/* TEXTO DE LA CAJA */
+/* UNIFICACIÓN DE TAMAÑO DE TEXTO GIGANTE */
 .texto-reflexion, 
 .texto-destacado-autoras,
 .caja-reflexion p {
-  font-size: 2.1rem !important; /* Tamaño */
+  font-size: 2.1rem !important;
   line-height: 1.85 !important;
   margin-bottom: 32px;
   text-align: justify;
