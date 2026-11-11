@@ -23,14 +23,14 @@ if (capaPared) {
 // 2. LLUVIA DE FRASES ESPACIADAS EN EL SUELO (VIRGINIA WOOLF)
 // ========================================================
 const frasesWoolf = [
-  { texto: "dejamos de ser soldados en el ejército de los rectos", clase: "gigante", x: 4, y: 72, rot: -4 },
-  { texto: "flotamos con ramas en el arroyo...", clase: "pesada", x: 38, y: 88, rot: 3 },
-  { texto: "el cuerpo interviene; se despunta o se afila", clase: "normal", x: 12, y: 82, rot: -2 },
-  { texto: "la gran experiencia; esta alteración espiritual", clase: "pesada", x: 2, y: 62, rot: 5 },
-  { texto: "gigantescos robles que crecen en la penumbra del alma", clase: "gigante", x: 28, y: 78, rot: -3 },
-  { texto: "tremenda es la alteración de la salud", clase: "normal", x: 18, y: 66, rot: 4 },
-  { texto: "no conocemos nuestras propias almas", clase: "gigante", x: 8, y: 92, rot: -5 },
-  { texto: "las aguas de la aniquilación", clase: "pesada", x: 48, y: 94, rot: 2 }
+  { texto: "dejamos de ser soldados en el ejército de los rectos", clase: "gigante", x: 26, y: 64, rot: -3 },
+  { texto: "flotamos con ramas en el arroyo...", clase: "pesada", x: 42, y: 88, rot: 2 },
+  { texto: "el cuerpo interviene; se despunta o se afila", clase: "normal", x: 28, y: 80, rot: -2 },
+  { texto: "la gran experiencia; esta alteración espiritual", clase: "pesada", x: 24, y: 72, rot: 3 },
+  { texto: "gigantescos robles que crecen en la penumbra del alma", clase: "gigante", x: 32, y: 76, rot: -1 },
+  { texto: "tremenda es la alteración de la salud", clase: "normal", x: 30, y: 68, rot: 4 },
+  { texto: "no conocemos nuestras propias almas", clase: "gigante", x: 22, y: 90, rot: -4 },
+  { texto: "las aguas de la aniquilación", clase: "pesada", x: 48, y: 93, rot: 2 }
 ];
 
 const contenedorLluvia = document.getElementById('lluviaWoolf');
@@ -44,13 +44,10 @@ function generarFrasesSuelo() {
     el.className = `frase-caida ${f.clase}`;
     el.innerText = f.texto;
     
-    // Posicionamiento preciso distribuido en el suelo
     el.style.left = `${f.x}vw`;
     el.style.setProperty('--destino-y', `${f.y}vh`);
     el.style.transform = `rotate(${f.rot}deg)`;
-    
-    // Escalonamiento de la caída para que caigan una por una
-    el.style.animationDelay = `${idx * 0.25}s`;
+    el.style.animationDelay = `${idx * 0.22}s`;
     
     contenedorLluvia.appendChild(el);
   });
