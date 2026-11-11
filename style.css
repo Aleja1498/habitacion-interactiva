@@ -92,13 +92,14 @@ body, html {
   height: 40%;
 }
 
-/* Ajuste fino de la Puerta (No choca con la cama) */
+/* Ajuste preciso de la Puerta y prioridad sobre los modales */
 .zona-puerta {
   top: 5%;
-  left: 35%;
-  width: 18%;
-  height: 52%;
+  left: 62%;
+  width: 14%;
+  height: 55%;
   cursor: pointer;
+  z-index: 50 !important; /* Le da prioridad máxima para que siempre reciba el clic */
 }
 
 
