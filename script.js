@@ -84,3 +84,15 @@ window.addEventListener('hashchange', () => {
 
 if (window.location.hash === '#woolf') generarFrasesSuelo();
 if (window.location.hash === '#storni') crearLluviaEspejo();
+
+// ========================================================
+// 4. CERRAR CUALQUIER MODAL CON LA TECLA ESCAPE (ESC)
+// ========================================================
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    // Si hay un hash activo (#perkins, #woolf, #storni), lo quita para volver a la habitación
+    if (window.location.hash !== '') {
+      window.location.hash = '';
+    }
+  }
+});
