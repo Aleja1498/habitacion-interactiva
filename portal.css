@@ -18,7 +18,7 @@ body {
 
 .fondo-portada, .fondo-escritoras, .fondo-bitacora {
   background-image: linear-gradient(rgba(245, 247, 240, 0.3), rgba(245, 247, 240, 0.45)), 
-                    url('paísaje.jpeg');
+                    url('paisaje.jpeg');
 }
 
 h1.titulo-portada {
