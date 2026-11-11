@@ -54,22 +54,81 @@ function generarFrasesSuelo() {
 }
 
 // ========================================================
-// 3. ESPEJO Y GOTAS DRAMÁTICAS (ALFONSINA STORNI)
+// 3. ESPEJO Y SECUENCIA DE FRASES (ALFONSINA STORNI)
 // ========================================================
+const frasesStorni = [
+  "tú me quieres alba",
+  "me quieres de espumas",
+  "tú me quieres nácar",
+  "corola cerrada",
+  "tú me quieres nívea",
+  "tú me quieres blanca...",
+  "habla con los pájaros y límpiate al alba." // Frase final de resistencia
+];
+
+const elTextoAnimado = document.getElementById('textoEspejoAnimado');
 const contenedorGotas = document.getElementById('gotasEspejo');
+let temporizadorSecuencia = null;
+
+function iniciarSecuenciaEspejo() {
+  if (!elTextoAnimado) return;
+
+  // Limpiar secuencias previas
+  if (temporizadorSecuencia) clearTimeout(temporizadorSecuencia);
+  elTextoAnimado.innerText = '';
+  elTextoAnimado.className = 'frase-secuencia-storni';
+
+  // Lluvia de gotas
+  crearGotasDramaticas();
+
+  let indice = 0;
+
+  function mostrarSiguienteFrase() {
+    if (indice < frasesStorni.length) {
+      const fraseActual = frasesStorni[indice];
+      elTextoAnimado.innerText = fraseActual;
+
+      // Si es la última frase (resistencia), se queda dorada e iluminada
+      if (indice === frasesStorni.length - 1) {
+        elTextoAnimado.className = 'frase-secuencia-storni resistencia-final';
+      } else {
+        // Reiniciar la animación de distorsión con agua
+        elTextoAnimado.className = 'frase-secuencia-storni';
+        void elTextoAnimado.offsetWidth; // Force reflow
+        elTextoAnimado.className = 'frase-secuencia-storni animar-entrada';
+
+        indice++;
+        temporizadorSecuencia = setTimeout(mostrarSiguienteFrase, 3300); // Cambia cada 3.3 seg
+      }
+    }
+  }
+
+  mostrarSiguienteFrase();
+}
 
 function crearGotasDramaticas() {
   if (!contenedorGotas) return;
   contenedorGotas.innerHTML = '';
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 20; i++) {
     let gota = document.createElement('div');
     gota.className = 'gota-pesada';
-    gota.style.left = `${Math.random() * 90 + 5}%`;
-    gota.style.animationDuration = `${1.0 + Math.random() * 1.2}s`;
-    gota.style.animationDelay = `${Math.random() * 2.5}s`;
+    gota.style.left = `${Math.random() * 85 + 5}%`;
+    gota.style.animationDuration = `${0.9 + Math.random() * 0.9}s`;
+    gota.style.animationDelay = `${Math.random() * 2}s`;
     contenedorGotas.appendChild(gota);
   }
+}
+
+// Escuchar cambios de hash
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#storni') {
+    iniciarSecuenciaEspejo();
+  }
+});
+
+if (window.location.hash === '#storni') {
+  iniciarSecuenciaEspejo();
 }
 
 // ========================================================
