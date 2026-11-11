@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: GIF Paisaje */
+/* Capa 1: El GIF paisaje detrás */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ body, html {
   object-fit: cover;
 }
 
-/* Capa 2: Habitación */
+/* Capa 2: La habitación superpuesta */
 .capa-habitacion {
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@ body, html {
   object-fit: fill;
 }
 
-/* Capa 3: Zonas interactivas delimitadas exactamente */
+/* Capa 3: Zonas interactivas */
 .capa-interactiva {
   position: absolute;
   top: 0;
@@ -68,7 +68,6 @@ body, html {
   cursor: pointer;
 }
 
-/* Ajuste fino de la Cama */
 .zona-cama {
   bottom: 0%;
   right: 0%;
@@ -76,7 +75,6 @@ body, html {
   height: 38%;
 }
 
-/* Ajuste fino de la Pared */
 .zona-pared {
   top: 0%;
   left: 0%;
@@ -84,7 +82,6 @@ body, html {
   height: 100%;
 }
 
-/* Ajuste fino del Espejo */
 .zona-espejo {
   top: 15%;
   right: 2%;
@@ -92,19 +89,30 @@ body, html {
   height: 40%;
 }
 
-/* Ajuste preciso de la Puerta y prioridad sobre los modales */
+/* Puerta con máxima prioridad de clic */
 .zona-puerta {
   top: 5%;
   left: 62%;
   width: 14%;
   height: 55%;
   cursor: pointer;
-  z-index: 50 !important; /* Le da prioridad máxima para que siempre reciba el clic */
+  z-index: 50 !important;
+}
+
+/* Enlace general para cerrar haciendo clic en cualquier parte */
+.enlace-fondo-cerrar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 31;
+  cursor: pointer;
 }
 
 
 /* ========================================================
-   EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN - PARED)
+   1. CHARLOTTE PERKINS GILMAN (EFECTO LINTERNA)
    ======================================================== */
 
 body:has(#perkins:target) .capa-habitacion {
@@ -128,7 +136,9 @@ body:has(#perkins:target) .capa-habitacion {
   -webkit-mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
 }
 
-.capa-texto-pared:target { display: block; }
+.capa-texto-pared:target {
+  display: block;
+}
 
 .lienzo-pared {
   position: absolute;
@@ -140,6 +150,7 @@ body:has(#perkins:target) .capa-habitacion {
   padding-right: 25px;
   font-family: 'Fraunces', serif !important;
   line-height: 1.8;
+  z-index: 36;
 }
 
 .lienzo-pared::-webkit-scrollbar { width: 0px; }
@@ -210,7 +221,7 @@ body:has(#perkins:target) .halo-linterna { display: block; }
 
 
 /* ========================================================
-   LA CAMA Y LA LLUVIA EN EL SUELO (VIRGINIA WOOLF)
+   2. VIRGINIA WOOLF (CAMA Y FRASES EN EL SUELO)
    ======================================================== */
 
 body:has(#woolf:target) .capa-habitacion {
@@ -233,17 +244,7 @@ body:has(#woolf:target) .capa-habitacion {
   display: block; 
 }
 
-/* Enlace invisible que ocupa toda la pantalla para cerrar al hacer clic */
-.enlace-fondo-cerrar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 31;
-  cursor: pointer;
-}
-
+/* Tarjeta apoyada suavemente sobre las cobijas */
 .texto-cama-principal {
   position: absolute;
   bottom: 18vh;
@@ -260,12 +261,9 @@ body:has(#woolf:target) .capa-habitacion {
   color: #fceabb;
   pointer-events: none;
   z-index: 40;
-
-  /* Inclinación sutil que encaja con el colchón */
   transform: rotate(-8deg);
   transform-origin: center center;
 }
-
 
 .texto-cama-principal h2 {
   font-family: 'Fraunces', serif;
@@ -331,7 +329,7 @@ body:has(#woolf:target) .capa-habitacion {
 
 
 /* ========================================================
-   EL ESPEJO INMERSIVO DE STORNI (ALFONSINA STORNI)
+   3. ALFONSINA STORNI (ESPEJO INMERSIVO DRAMÁTICO)
    ======================================================== */
 
 body:has(#storni:target) .capa-habitacion {
@@ -347,14 +345,13 @@ body:has(#storni:target) .capa-habitacion {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  background: rgba(5, 4, 3, 0.45); /* Capa sutil casi transparente */
+  background: rgba(5, 4, 3, 0.45);
 }
 
 .capa-texto-espejo:target {
   display: block;
 }
 
-/* CRISTAL DEL ESPEJO UBICADO DENTRO DEL MARCO REAL DE LA HABITACIÓN */
 .cristal-espejo-dramatico {
   position: absolute;
   top: 18vh;
@@ -399,14 +396,12 @@ body:has(#storni:target) .capa-habitacion {
   transition: all 2.5s ease-in-out;
 }
 
-/* Frases del mandato que se disuelven con dramatismo */
 .verso-mandato {
   color: #ffffff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   animation: lavarseDramatico 6s forwards 1.8s;
 }
 
-/* Frases de resistencia que quedan nítidas en dorado */
 .verso-resistencia {
   color: #f1c40f;
   font-weight: 700;
@@ -415,27 +410,11 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 @keyframes lavarseDramatico {
-  0% {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.5;
-    filter: blur(4px);
-    transform: translateY(12px);
-    color: #aed6f1;
-  }
-  100% {
-    opacity: 0.05;
-    filter: blur(10px);
-    transform: translateY(30px);
-    color: transparent;
-    text-shadow: none;
-  }
+  0% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+  50% { opacity: 0.5; filter: blur(4px); transform: translateY(12px); color: #aed6f1; }
+  100% { opacity: 0.05; filter: blur(10px); transform: translateY(30px); color: transparent; text-shadow: none; }
 }
 
-/* CONTENEDOR DE GOTAS DRAMÁTICAS Y GRUESAS */
 .lluvia-espejo {
   position: absolute;
   top: 18vh;
@@ -447,11 +426,10 @@ body:has(#storni:target) .capa-habitacion {
   overflow: hidden;
 }
 
-/* GOTAS PESADAS */
 .gota-pesada {
   position: absolute;
-  width: 4px; /* Más gruesas */
-  height: 45px; /* Más largas */
+  width: 4px;
+  height: 45px;
   background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0.9));
   border-radius: 2px;
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
@@ -459,15 +437,7 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 @keyframes caerGotaDramatica {
-  0% {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  30% {
-    opacity: 0.95;
-  }
-  100% {
-    transform: translateY(50vh);
-    opacity: 0;
-  }
+  0% { transform: translateY(-50px); opacity: 0; }
+  30% { opacity: 0.95; }
+  100% { transform: translateY(50vh); opacity: 0; }
 }
