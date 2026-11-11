@@ -54,33 +54,35 @@ function generarFrasesSuelo() {
 }
 
 // ========================================================
-// 3. ESPEJO Y LLUVIA DE AGUA (ALFONSINA STORNI)
+// 3. ESPEJO Y GOTAS DRAMÁTICAS (ALFONSINA STORNI)
 // ========================================================
 const contenedorGotas = document.getElementById('gotasEspejo');
 
-function crearLluviaEspejo() {
+function crearGotasDramaticas() {
   if (!contenedorGotas) return;
   contenedorGotas.innerHTML = '';
 
-  for (let i = 0; i < 35; i++) {
+  // Genera 25 gotas gruesas y pesadas que caen dentro del marco del espejo
+  for (let i = 0; i < 25; i++) {
     let gota = document.createElement('div');
-    gota.className = 'gota-cristal';
-    gota.style.left = `${Math.random() * 100}vw`;
-    gota.style.animationDuration = `${0.8 + Math.random() * 0.8}s`;
-    gota.style.animationDelay = `${Math.random() * 2}s`;
+    gota.className = 'gota-pesada';
+    gota.style.left = `${Math.random() * 90 + 5}%`;
+    gota.style.animationDuration = `${1.0 + Math.random() * 1.2}s`;
+    gota.style.animationDelay = `${Math.random() * 2.5}s`;
     contenedorGotas.appendChild(gota);
   }
 }
 
-// Escuchar cambios de hash (#woolf / #storni)
+// Escuchar si el usuario entra a #storni
 window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#woolf') {
-    generarFrasesSuelo();
-  }
   if (window.location.hash === '#storni') {
-    crearLluviaEspejo();
+    crearGotasDramaticas();
   }
 });
+
+if (window.location.hash === '#storni') {
+  crearGotasDramaticas();
+}
 
 if (window.location.hash === '#woolf') generarFrasesSuelo();
 if (window.location.hash === '#storni') crearLluviaEspejo();
