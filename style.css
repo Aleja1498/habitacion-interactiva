@@ -17,7 +17,7 @@ body, html {
   height: 100vh;
 }
 
-/* Capa 1: El GIF paisaje detrás */
+/* Capa 1: gif */
 .capa-paisaje {
   position: absolute;
   top: 0;
@@ -37,7 +37,7 @@ body, html {
   object-fit: cover;
 }
 
-/* Capa 2: La habitación superpuesta */
+/* Capa 2: La habitación  */
 .capa-habitacion {
   position: absolute;
   top: 0;
@@ -54,7 +54,7 @@ body, html {
   object-fit: fill;
 }
 
-/* Capa 3: Zonas interactivas */
+/* Capa 3: zonas interactivas */
 .capa-interactiva {
   position: absolute;
   top: 0;
@@ -99,7 +99,6 @@ body, html {
   z-index: 4;
 }
 
-/* Puerta con máxima prioridad de clic */
 .zona-puerta {
   top: 5%;
   left: 62%;
@@ -109,7 +108,6 @@ body, html {
   z-index: 50 !important;
 }
 
-/* Enlace invisible para cerrar al hacer clic en cualquier parte */
 .enlace-fondo-cerrar {
   position: absolute;
   top: 0;
@@ -121,9 +119,7 @@ body, html {
 }
 
 
-/* ========================================================
-   1. CHARLOTTE PERKINS GILMAN (EFECTO LINTERNA)
-   ======================================================== */
+/* 1. CHARLOTTE PERKINS GILMAN (LINTERNA) */
 
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
@@ -228,9 +224,7 @@ body:has(#perkins:target) .halo-linterna { display: block; }
 }
 
 
-/* ========================================================
-   2. VIRGINIA WOOLF (CAMA Y FRASES EN EL SUELO)
-   ======================================================== */
+/*  VIRGINIA WOOLF (CAMA Y FRASES EN EL SUELO) */
 
 body:has(#woolf:target) .capa-habitacion {
   filter: brightness(0.3) contrast(1.15);
@@ -332,9 +326,7 @@ body:has(#woolf:target) .capa-habitacion {
   100% { top: var(--destino-y); opacity: 0.88; }
 }
 
-/* ========================================================
-   3. ALFONSINA STORNI (TEXTO LEGIBLE, GRANDE Y TRANSPARENTE)
-   ======================================================== */
+/* 3. ALFONSINA STORNI */
 
 body:has(#storni:target) .capa-habitacion {
   filter: brightness(0.4) contrast(1.2);
@@ -354,12 +346,12 @@ body:has(#storni:target) .capa-habitacion {
 
 .capa-texto-espejo:target { display: block; }
 
-/* CONTENEDOR TRANSPARENTE CON MÁS ANCHO PARA PERMITIR LETRA GRANDE */
+/* CONTENEDOR TRANSPARENTE */
 .cristal-espejo-dramatico {
   position: absolute;
-  top: 25.5vh;        /* Centrado impecable en el vidrio */
+  top: 25.5vh;        
   right: 1.2vw;       
-  width: 11vw;        /* Espacio holgado para no apretar la letra */
+  width: 11vw;        
   height: 35vh;       
   padding: 5px;
   background: transparent !important;
@@ -373,7 +365,7 @@ body:has(#storni:target) .capa-habitacion {
   pointer-events: none;
   overflow: hidden;
   
-  /* Inclinación exacta de la perspectiva */
+  
   transform: rotate(-3.5deg);
   transform-origin: top right;
   
@@ -389,7 +381,7 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 .titulo-espejo {
-  font-size: 1.2rem;       /* Título más visible */
+  font-size: 1.2rem;       
   color: #f1c40f;
   margin-bottom: 2px;
   font-weight: 500;
@@ -400,7 +392,7 @@ body:has(#storni:target) .capa-habitacion {
 .autor-espejo {
   font-style: italic;
   color: #e0e0e0;
-  font-size: 0.95rem;      /* Nombre de Storni más claro */
+  font-size: 0.95rem;      
   font-weight: 300;
 }
 
@@ -414,11 +406,11 @@ body:has(#storni:target) .capa-habitacion {
   padding: 0;
 }
 
-/* TIPOGRAFÍA GRANDE, NÍTIDA Y SIN FORZAR LA VISTA */
+/* TIPOGRAFÍA */
 .frase-secuencia-storni {
-  font-size: 2.5rem !important;  /* ¡PUNTAJE ALTO Y LEGIBLE! */
+  font-size: 2.5rem !important;  
   line-height: 1.25;
-  font-weight: 300 !important;   /* Letra estilizada light */
+  font-weight: 300 !important;   
   font-style: italic !important;
   color: #ffffff !important;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 6px rgba(255, 255, 255, 0.6);
@@ -497,11 +489,9 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 
-/* ========================================================
-   4. EL AFUERA / LA VENTANA (EXPANSIÓN INMERSIVA)
-   ======================================================== */
+/* / LA VENTANA  */
 
-/* Al activar #ventana, oculta completamente el cuarto y expande el paisaje */
+/* Al activar ventana, expande el paisaje */
 body:has(#ventana:target) .capa-habitacion {
   opacity: 0;
   transition: opacity 0.8s ease;
@@ -530,7 +520,7 @@ body:has(#ventana:target) .gif-paisaje {
   height: 100vh;
   z-index: 30;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.25); /* Viñeta ultra sutil sobre la naturaleza */
+  background: rgba(0, 0, 0, 0.25); 
 }
 
 .capa-texto-ventana:target {
@@ -547,12 +537,12 @@ body:has(#ventana:target) .gif-paisaje {
   z-index: 35;
 }
 
-/* FRASES TRANSPARENTES FLOTANDO EN DISTINTOS PUNTOS DE LA PANTALLA */
+/* FRASES FLOTANDO */
 .frase-afuera {
   position: absolute;
   max-width: 32vw;
   font-family: 'Fraunces', serif;
-  font-size: 1.45rem;
+  font-size: 3.4rem;
   line-height: 1.5;
   font-weight: 300;
   font-style: italic;
