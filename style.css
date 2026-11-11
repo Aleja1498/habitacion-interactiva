@@ -333,7 +333,7 @@ body:has(#woolf:target) .capa-habitacion {
 }
 
 /* ========================================================
-   3. ALFONSINA STORNI (TRANSPARENTE Y LETRA NÍTIDA LIGHT)
+   3. ALFONSINA STORNI (TEXTO LEGIBLE, GRANDE Y TRANSPARENTE)
    ======================================================== */
 
 body:has(#storni:target) .capa-habitacion {
@@ -354,18 +354,18 @@ body:has(#storni:target) .capa-habitacion {
 
 .capa-texto-espejo:target { display: block; }
 
-/* Contenedor transparente espejo */
+/* CONTENEDOR TRANSPARENTE CON MÁS ANCHO PARA PERMITIR LETRA GRANDE */
 .cristal-espejo-dramatico {
   position: absolute;
-  top: 26.5vh;        
-  right: 2.4vw;       
-  width: 7.6vw;       
-  height: 33vh;       
-  padding: 5px 2px;
-  background: transparent !important; 
+  top: 25.5vh;        /* Centrado impecable en el vidrio */
+  right: 1.2vw;       
+  width: 11vw;        /* Espacio holgado para no apretar la letra */
+  height: 35vh;       
+  padding: 5px;
+  background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border: none !important;            
+  border: none !important;
   box-shadow: none !important;
   font-family: 'Fraunces', serif;
   color: #ffffff;
@@ -373,7 +373,7 @@ body:has(#storni:target) .capa-habitacion {
   pointer-events: none;
   overflow: hidden;
   
-  /* Inclinación */
+  /* Inclinación exacta de la perspectiva */
   transform: rotate(-3.5deg);
   transform-origin: top right;
   
@@ -389,10 +389,10 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 .titulo-espejo {
-  font-size: 0.90rem;
+  font-size: 1.2rem;       /* Título más visible */
   color: #f1c40f;
-  margin-bottom: 1px;
-  font-weight: 400;
+  margin-bottom: 2px;
+  font-weight: 500;
   font-style: italic;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.98);
 }
@@ -400,7 +400,7 @@ body:has(#storni:target) .capa-habitacion {
 .autor-espejo {
   font-style: italic;
   color: #e0e0e0;
-  font-size: 0.75rem;
+  font-size: 0.95rem;      /* Nombre de Storni más claro */
   font-weight: 300;
 }
 
@@ -411,19 +411,20 @@ body:has(#storni:target) .capa-habitacion {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2px;
+  padding: 0;
 }
 
-/* TIPOGRAFÍA */
+/* TIPOGRAFÍA GRANDE, NÍTIDA Y SIN FORZAR LA VISTA */
 .frase-secuencia-storni {
-  font-size: 1.62rem !important;  
-  line-height: 1.35;
-  font-weight: 300 !important;   
+  font-size: 2.5rem !important;  /* ¡PUNTAJE ALTO Y LEGIBLE! */
+  line-height: 1.25;
+  font-weight: 300 !important;   /* Letra estilizada light */
   font-style: italic !important;
   color: #ffffff !important;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 0 4px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 6px rgba(255, 255, 255, 0.6);
   opacity: 0;
-  filter: none !important;      
+  filter: none !important;
+  white-space: normal;
 }
 
 .frase-secuencia-storni.animar-entrada {
@@ -432,10 +433,10 @@ body:has(#storni:target) .capa-habitacion {
 
 .frase-secuencia-storni.resistencia-final {
   color: #f1c40f !important;
-  font-size: 1.7rem !important;
-  font-weight: 300 !important;
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
   font-style: italic;
-  text-shadow: 0 0 16px #f1c40f, 0 3px 14px rgba(0,0,0,0.98);
+  text-shadow: 0 0 18px #f1c40f, 0 3px 14px rgba(0,0,0,0.98);
   animation: resistenciaFija 3s ease forwards;
 }
 
@@ -465,13 +466,13 @@ body:has(#storni:target) .capa-habitacion {
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* GOTAS DENTRO DEL ESPEJO RECALIBRADO */
+/* GOTAS DENTRO DEL ESPEJO */
 .lluvia-espejo {
   position: absolute;
-  top: 26.5vh;
-  right: 2.4vw;
-  width: 7.6vw;
-  height: 33vh;
+  top: 25.5vh;
+  right: 1.2vw;
+  width: 11vw;
+  height: 35vh;
   pointer-events: none;
   z-index: 38;
   overflow: hidden;
@@ -492,7 +493,7 @@ body:has(#storni:target) .capa-habitacion {
 @keyframes caerGotaDramatica {
   0% { transform: translateY(-35px); opacity: 0; }
   30% { opacity: 0.95; }
-  100% { transform: translateY(33vh); opacity: 0; }
+  100% { transform: translateY(35vh); opacity: 0; }
 }
 
 
