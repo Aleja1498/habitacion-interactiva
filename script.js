@@ -20,7 +20,7 @@ if (capaPared) {
 }
 
 // ========================================================
-// 2. LLUVIA DE FRASES ESPACIADAS EN EL SUELO (VIRGINIA WOOLF)
+// 2. LLUVIA DE FRASES EN EL SUELO (VIRGINIA WOOLF)
 // ========================================================
 const frasesWoolf = [
   { texto: "dejamos de ser soldados en el ejército de los rectos", clase: "gigante", x: 26, y: 64, rot: -3 },
@@ -62,7 +62,6 @@ function crearGotasDramaticas() {
   if (!contenedorGotas) return;
   contenedorGotas.innerHTML = '';
 
-  // Genera 25 gotas gruesas y pesadas que caen dentro del marco del espejo
   for (let i = 0; i < 25; i++) {
     let gota = document.createElement('div');
     gota.className = 'gota-pesada';
@@ -73,26 +72,24 @@ function crearGotasDramaticas() {
   }
 }
 
-// Escuchar si el usuario entra a #storni
-window.addEventListener('hashchange', () => {
+// ========================================================
+// 4. CONTROL DE EVENTOS HASH & ESCAPE (ESC)
+// ========================================================
+function ejecutarEfectosSegunHash() {
+  if (window.location.hash === '#woolf') {
+    generarFrasesSuelo();
+  }
   if (window.location.hash === '#storni') {
     crearGotasDramaticas();
   }
-});
-
-if (window.location.hash === '#storni') {
-  crearGotasDramaticas();
 }
 
-if (window.location.hash === '#woolf') generarFrasesSuelo();
-if (window.location.hash === '#storni') crearLluviaEspejo();
+window.addEventListener('hashchange', ejecutarEfectosSegunHash);
+window.addEventListener('DOMContentLoaded', ejecutarEfectosSegunHash);
 
-// ========================================================
-// 4. CERRAR CUALQUIER MODAL CON LA TECLA ESCAPE (ESC)
-// ========================================================
+// Cierre universal con la tecla Escape (Esc)
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' || e.key === 'Esc') {
-    // Si hay un hash activo (#perkins, #woolf, #storni), lo quita para volver a la habitación
     if (window.location.hash !== '') {
       window.location.hash = '';
     }
