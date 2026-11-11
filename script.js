@@ -1,105 +1,89 @@
 // ========================================================
-// 1. EFECTO PARED (CHARLOTTE PERKINS GILMAN)
+// 1. EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN)
 // ========================================================
-const capaPared = document.getElementById('perkins');
+const capaPared = document.querySelector('.capa-texto-pared');
 const haloLinterna = document.getElementById('linterna');
 
 if (capaPared) {
   capaPared.addEventListener('mousemove', (e) => {
     const x = e.clientX;
     const y = e.clientY;
-
+    
     capaPared.style.setProperty('--x', `${x}px`);
     capaPared.style.setProperty('--y', `${y}px`);
-
+    
     if (haloLinterna) {
       haloLinterna.style.left = `${x}px`;
       haloLinterna.style.top = `${y}px`;
     }
   });
-
-  capaPared.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'A') {
-      window.location.hash = '';
-    }
-  });
 }
 
-
 // ========================================================
-// 2. CAMA Y CAÍDA EN EL SUELO (VIRGINIA WOOLF)
+// 2. LLUVIA DE FRASES EN EL SUELO (VIRGINIA WOOLF)
 // ========================================================
 const frasesWoolf = [
-  { texto: "cuán tremenda es la alteración espiritual", estilo: "pesada" },
-  { texto: "Monstruo corpóreo", estilo: "gigante" },
-  { texto: "Desertores", estilo: "gigante" },
-  { texto: "aguas de la aniquilación cerrarse sobre nuestras cabezas", estilo: "normal" },
-  { texto: "el cuerpo interviene; se despunta o se afila", estilo: "pesada" },
-  { texto: "el cuerpo no es más que una lámina de liso cristal", estilo: "normal" },
-  { texto: "Razón en suspenso", estilo: "gigante" },
-  { texto: "divinamente hermosa, divinamente cruel", estilo: "pesada" },
-  { texto: "solo quienes yacen recostados saben", estilo: "pesada" },
-  { texto: "Indiferencia del cielo", estilo: "normal" },
-  { texto: "no conocemos nuestras propias almas", estilo: "pesada" }
+  { texto: "nos convertimos en desertores", clase: "gigante" },
+  { texto: "el cuerpo interviene; se despunta o se afila", clase: "pesada" },
+  { texto: "una lámina de liso cristal", clase: "normal" },
+  { texto: "la gran experiencia; esta alteración espiritual", clase: "pesada" },
+  { texto: "no conocemos nuestras propias almas", clase: "gigante" },
+  { texto: "razón en suspenso", clase: "normal" },
+  { texto: "monstruo corpóreo", clase: "pesada" },
+  { texto: "las aguas de la aniquilación", clase: "gigante" }
 ];
 
-const capaCama = document.getElementById('woolf');
 const contenedorLluvia = document.getElementById('lluviaWoolf');
 
-function generarCaidaFrases() {
+function generarFrasesSuelo() {
   if (!contenedorLluvia) return;
   contenedorLluvia.innerHTML = '';
+  
+  frasesWoolf.forEach((f) => {
+    let el = document.createElement('div');
+    el.className = `frase-caida ${f.clase}`;
+    el.innerText = f.texto;
+    
+    let posX = Math.random() * 70 + 5; 
+    let posY = Math.random() * 25 + 68; 
+    let rot = (Math.random() - 0.5) * 20; 
 
-  frasesWoolf.forEach((item, index) => {
-    setTimeout(() => {
-      let span = document.createElement('span');
-      span.className = `frase-caida ${item.estilo}`;
-      span.innerText = item.texto;
-
-      // Caída al piso de madera a la izquierda de la cama
-      let posX = Math.random() * 45 + 5; // De 5vw a 50vw
-      let posY = 72 + Math.random() * 18; // De 72vh a 90vh (piso)
-      let rotacion = Math.random() * 12 - 6;
-
-      span.style.left = `${posX}vw`;
-      span.style.setProperty('--destino-y', `${posY}vh`);
-      span.style.transform = `rotate(${rotacion}deg)`;
-
-      contenedorLluvia.appendChild(span);
-    }, index * 140);
+    el.style.left = `${posX}vw`;
+    el.style.setProperty('--destino-y', `${posY}vh`);
+    el.style.transform = `rotate(${rot}deg)`;
+    
+    contenedorLluvia.appendChild(el);
   });
 }
 
-// Ejecución al cambiar hash
+// ========================================================
+// 3. ESPEJO Y LLUVIA DE AGUA (ALFONSINA STORNI)
+// ========================================================
+const contenedorGotas = document.getElementById('gotasEspejo');
+
+function crearLluviaEspejo() {
+  if (!contenedorGotas) return;
+  contenedorGotas.innerHTML = '';
+
+  for (let i = 0; i < 35; i++) {
+    let gota = document.createElement('div');
+    gota.className = 'gota-cristal';
+    gota.style.left = `${Math.random() * 100}vw`;
+    gota.style.animationDuration = `${0.8 + Math.random() * 0.8}s`;
+    gota.style.animationDelay = `${Math.random() * 2}s`;
+    contenedorGotas.appendChild(gota);
+  }
+}
+
+// Escuchar cambios de hash (#woolf / #storni)
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#woolf') {
-    generarCaidaFrases();
+    generarFrasesSuelo();
+  }
+  if (window.location.hash === '#storni') {
+    crearLluviaEspejo();
   }
 });
 
-// Ejecución inicial si ya está en #woolf
-if (window.location.hash === '#woolf') {
-  generarCaidaFrases();
-}
-
-if (capaCama) {
-  capaCama.addEventListener('click', (e) => {
-    if (e.target.classList.contains('frase-caida')) {
-      e.stopPropagation();
-      return;
-    }
-    if (e.target.tagName !== 'A') {
-      window.location.hash = '';
-    }
-  });
-}
-
-
-// ========================================================
-// 3. TECLA ESCAPE GLOBAL
-// ========================================================
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    window.location.hash = '';
-  }
-});
+if (window.location.hash === '#woolf') generarFrasesSuelo();
+if (window.location.hash === '#storni') crearLluviaEspejo();
