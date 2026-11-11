@@ -97,7 +97,7 @@ body, html {
   cursor: pointer;
 }
 
-/* Capas de texto estándar (Storni - Espejo) */
+/* Capas de texto estándar */
 .capa-texto {
   display: none;
   position: fixed;
@@ -130,47 +130,7 @@ body, html {
   z-index: 40;
 }
 
-.btn-cerrar:hover {
-  color: #ffffff;
-}
-
-.contenido-modal {
-  max-width: 750px;
-  margin: 40px auto;
-  font-family: 'Libre Baskerville', Georgia, serif;
-  line-height: 1.8;
-}
-
-.contenido-modal h2 {
-  font-size: 2.5rem;
-  color: #e5c158;
-  margin-bottom: 5px;
-}
-
-.contenido-modal .autor {
-  font-style: italic;
-  color: #a89f91;
-  margin-bottom: 30px;
-}
-
-.contenido-modal p {
-  margin-bottom: 18px;
-}
-
-.destacado {
-  color: #e5c158;
-  font-weight: bold;
-}
-
-.frases-lluvia {
-  display: none;
-}
-
-
-/* ========================================================
-   EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN - PARED)
-   ======================================================== */
-
+/* LINTERNA GILMAN */
 body:has(#perkins:target) .capa-habitacion {
   filter: brightness(0.35) contrast(1.1);
 }
@@ -186,7 +146,6 @@ body:has(#perkins:target) .capa-habitacion {
   overflow: hidden;
   cursor: pointer;
   background-color: rgba(10, 8, 5, 0.85);
-  
   --x: 50%;
   --y: 50%;
   mask-image: radial-gradient(circle 450px at var(--x) var(--y), black 35%, transparent 100%);
@@ -209,9 +168,7 @@ body:has(#perkins:target) .capa-habitacion {
   line-height: 1.8;
 }
 
-.lienzo-pared::-webkit-scrollbar {
-  width: 0px;
-}
+.lienzo-pared::-webkit-scrollbar { width: 0px; }
 
 .lienzo-pared h2 {
   font-family: 'Fraunces', serif !important;
@@ -260,9 +217,7 @@ body:has(#perkins:target) .capa-habitacion {
   display: none;
 }
 
-body:has(#perkins:target) .halo-linterna {
-  display: block;
-}
+body:has(#perkins:target) .halo-linterna { display: block; }
 
 .btn-cerrar-pared {
   position: fixed;
@@ -277,19 +232,9 @@ body:has(#perkins:target) .halo-linterna {
   border-radius: 4px;
   z-index: 40;
   border: 1px solid rgba(229, 193, 88, 0.3);
-  pointer-events: auto;
 }
 
-.btn-cerrar-pared:hover {
-  background: #e5c158;
-  color: #120e0a;
-}
-
-
-/* ========================================================
-   LA CAMA Y LA LLUVIA EN EL SUELO (VIRGINIA WOOLF)
-   ======================================================== */
-
+/* CAMA WOOLF */
 body:has(#woolf:target) .capa-habitacion {
   filter: brightness(0.3) contrast(1.15);
 }
@@ -307,11 +252,8 @@ body:has(#woolf:target) .capa-habitacion {
   background: rgba(10, 7, 4, 0.65);
 }
 
-.capa-texto-cama:target {
-  display: block;
-}
+.capa-texto-cama:target { display: block; }
 
-/* CITA SOBRE LA CAMA: Inclinada levemente en el sentido del colchón */
 .texto-cama-principal {
   position: absolute;
   bottom: 14vh;
@@ -322,8 +264,6 @@ body:has(#woolf:target) .capa-habitacion {
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.98);
   pointer-events: none;
   z-index: 40;
-
-  /* ROTACIÓN DE 12 GRADOS RECOSTADA SOBRE EL COLCHÓN */
   transform: rotate(12deg);
   transform-origin: center center;
 }
@@ -366,7 +306,6 @@ body:has(#woolf:target) .capa-habitacion {
   z-index: 32;
 }
 
-/* FRASES PESADAS EN EL SUELO */
 .frase-caida {
   position: absolute;
   font-family: 'Fraunces', serif !important;
@@ -381,15 +320,8 @@ body:has(#woolf:target) .capa-habitacion {
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.frase-caida.pesada {
-  font-size: 54px;
-  color: #f39c12;
-}
-
-.frase-caida.gigante {
-  font-size: 64px;
-  color: #f1c40f;
-}
+.frase-caida.pesada { font-size: 54px; color: #f39c12; }
+.frase-caida.gigante { font-size: 64px; color: #f1c40f; }
 
 .frase-caida:hover {
   color: #ffffff !important;
@@ -399,17 +331,9 @@ body:has(#woolf:target) .capa-habitacion {
 }
 
 @keyframes caerAlSuelo {
-  0% {
-    top: 25vh;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.95;
-  }
-  100% {
-    top: var(--destino-y);
-    opacity: 0.88;
-  }
+  0% { top: 25vh; opacity: 0; }
+  50% { opacity: 0.95; }
+  100% { top: var(--destino-y); opacity: 0.88; }
 }
 
 .btn-cerrar-cama {
@@ -425,10 +349,120 @@ body:has(#woolf:target) .capa-habitacion {
   border-radius: 4px;
   z-index: 50;
   border: 1px solid rgba(229, 193, 88, 0.3);
-  pointer-events: auto;
 }
 
-.btn-cerrar-cama:hover {
-  background: #e5c158;
-  color: #120e0a;
+/* ESPEJO STORNI */
+body:has(#storni:target) .capa-habitacion {
+  filter: grayscale(80%) brightness(0.4) blur(3px);
+}
+
+.capa-texto-espejo {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  background: rgba(8, 12, 14, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+.capa-texto-espejo:target { display: block; }
+
+.lienzo-espejo {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 50px 60px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 30px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  font-family: 'Fraunces', serif;
+  color: #f5f5f5;
+  position: relative;
+  z-index: 35;
+}
+
+.lienzo-espejo h2 {
+  font-size: 3.5rem;
+  color: #e5c158;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.lienzo-espejo .autor {
+  font-style: italic;
+  color: #aaaaaa;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.poema-espejo p {
+  font-size: 1.85rem;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  text-align: center;
+  transition: all 2s ease-in-out;
+}
+
+.verso-mandato {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  animation: lavarseConAgua 5s forwards 2s;
+}
+
+.verso-resistencia {
+  color: #e5c158;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@keyframes lavarseConAgua {
+  0% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+  50% { opacity: 0.6; filter: blur(3px); transform: translateY(8px); color: #aed6f1; }
+  100% { opacity: 0.2; filter: blur(8px); transform: translateY(20px); color: transparent; text-shadow: none; }
+}
+
+.lluvia-espejo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 32;
+}
+
+.gota-cristal {
+  position: absolute;
+  width: 2px;
+  height: 25px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.4));
+  animation: caerGota 1.2s linear infinite;
+}
+
+@keyframes caerGota {
+  0% { transform: translateY(-30px); opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.btn-cerrar-espejo {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  color: #e5c158;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-family: 'Fraunces', serif;
+  background: rgba(18, 14, 10, 0.85);
+  padding: 10px 20px;
+  border-radius: 4px;
+  z-index: 50;
+  border: 1px solid rgba(229, 193, 88, 0.3);
 }
