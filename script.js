@@ -1,6 +1,6 @@
-// ========================================================
-// 1. EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN)
-// ========================================================
+
+//  EFECTO LINTERNA (CHARLOTTE PERKINS GILMAN)
+
 const capaPared = document.querySelector('.capa-texto-pared');
 const haloLinterna = document.getElementById('linterna');
 
@@ -19,9 +19,9 @@ if (capaPared) {
   });
 }
 
-// ========================================================
+
 // 2. LLUVIA DE FRASES EN EL SUELO (VIRGINIA WOOLF)
-// ========================================================
+
 const frasesWoolf = [
   { texto: "dejamos de ser soldados en el ejército de los rectos", clase: "gigante", x: 26, y: 64, rot: -3 },
   { texto: "flotamos con ramas en el arroyo...", clase: "pesada", x: 42, y: 88, rot: 2 },
@@ -53,9 +53,9 @@ function generarFrasesSuelo() {
   });
 }
 
-// ========================================================
+
 // 3. ESPEJO Y SECUENCIA DE FRASES (ALFONSINA STORNI)
-// ========================================================
+
 const frasesStorni = [
   "tú me quieres alba",
   "me quieres de espumas",
@@ -116,9 +116,9 @@ function crearGotasDramaticas() {
   }
 }
 
-// ========================================================
-// 4. CONTROL DE EVENTOS HASH & ESCAPE (ESC)
-// ========================================================
+
+// (ESC)
+
 function ejecutarEfectosSegunHash() {
   if (window.location.hash === '#woolf') {
     generarFrasesSuelo();
