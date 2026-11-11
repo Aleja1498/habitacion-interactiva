@@ -488,7 +488,7 @@ body:has(#storni:target) .capa-habitacion {
 }
 
 
-/* / LA VENTANA  */
+/* / VENTANA */
 
 /* Al activar ventana, expande el paisaje */
 body:has(#ventana:target) .capa-habitacion {
